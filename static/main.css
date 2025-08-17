@@ -55,46 +55,17 @@ body {
     gap: var(--spacing-xs); /* 最小化Logo和文字间距 */
 }
 
-.team-name {
-    font-size: 1.4rem; /* 进一步减小文字大小 */
-    font-weight: 700;
-    margin-right: 0;
-    color: var(--primary-color);
-    text-align: left;
-}
-
-.team-logo {
-    height: 45px; /* 减小Logo高度 */
-    border-radius: 4px;
-    margin-right: 0;
-}
-
 .team-info {
     display: flex;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    justify-content: space-between; /* 保持图标区域在右侧 */
 }
 
 .logo-and-name {
     display: flex;
     align-items: center; /* Logo和文字垂直居中对齐 */
     gap: var(--spacing-md); /* Logo和文字之间的间距 */
-}
-
-.team-name {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-right: 0; /* 移除右侧margin，确保靠左 */
-    color: var(--primary-color);
-    text-align: left; /* 强制文字左对齐 */
-}
-
-.team-logo {
-    height: 60px;
-    border-radius: 4px;
-    margin-right: 0; /* 确保Logo在文字左侧，无额外右间距 */
 }
 
 /* 添加header-actions样式 */
@@ -161,6 +132,7 @@ body {
 .team-logo {
     height: 60px;
     border-radius: 4px;
+    margin-right: 0;
 }
 
 .plugin-image {
@@ -466,7 +438,10 @@ iframe {
         text-overflow: ellipsis;
         max-width: 180px;
         margin-right: 0;
-        margin-bottom: var(--spacing-md);
+    }
+
+    .team-logo {
+        height: 50px;
     }
 
     .intro-text {
@@ -507,7 +482,6 @@ iframe {
     }
 
     .team-info {
-        justify-content: space-between;
         align-items: center;
         width: 100%;
     }
@@ -515,6 +489,7 @@ iframe {
     .logo-and-name {
         gap: 0.5rem;
         min-width: 0;
+        margin-right: 0;
     }
 
     .nav-links {
