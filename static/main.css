@@ -1,0 +1,385 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* 浅色模式变量 - 默认主题 */
+:root {
+    --primary-color: #5170b4; 
+    --text-color: #34495e;
+    --bg-color: #ffffff; /* 白色背景 */
+    --card-bg: #f8f9fa;
+    --border-color: #eaecef;
+    --shadow: 0 1px 2px rgba(0,0,0,0.05);
+    /* 间距变量 */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+}
+
+/* 深色模式变量 */
+[data-theme="dark"] {
+    --primary-color: #5170b4;
+    --text-color: #eaecef;
+    --bg-color: #1a1a1a; /* 深色背景 */
+    --card-bg: #2d2d2d; /* 深色卡片背景 */
+    --border-color: #444444;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* 全局背景设置 */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 头部样式 */
+.header {
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: var(--spacing-sm) 5%; /* 进一步减小上下内边距至sm */
+    margin-bottom: var(--spacing-md); /* 减小底部外边距 */
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.logo-and-name {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs); /* 最小化Logo和文字间距 */
+}
+
+.team-name {
+    font-size: 1.4rem; /* 进一步减小文字大小 */
+    font-weight: 700;
+    margin-right: 0;
+    color: var(--primary-color);
+    text-align: left;
+}
+
+.team-logo {
+    height: 45px; /* 减小Logo高度 */
+    border-radius: 4px;
+    margin-right: 0;
+}
+
+.team-info {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between; /* 保持图标区域在右侧 */
+}
+
+.logo-and-name {
+    display: flex;
+    align-items: center; /* Logo和文字垂直居中对齐 */
+    gap: var(--spacing-md); /* Logo和文字之间的间距 */
+}
+
+.team-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-right: 0; /* 移除右侧margin，确保靠左 */
+    color: var(--primary-color);
+    text-align: left; /* 强制文字左对齐 */
+}
+
+.team-logo {
+    height: 60px;
+    border-radius: 4px;
+    margin-right: 0; /* 确保Logo在文字左侧，无额外右间距 */
+}
+
+/* 添加header-actions样式 */
+.header-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+/* 修改GitHub链接样式 */
+.github-link {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.github-link:hover {
+    color: var(--primary-color);
+}
+
+/* 修改深色模式切换按钮样式 */
+.theme-toggle {
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    transition: all 0.2s ease;
+}
+
+/* 添加滚动隐藏效果样式 */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.header.hidden-actions .header-actions {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+}
+
+.header-actions {
+    transition: all 0.3s ease;
+}
+
+.team-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-right: var(--spacing-lg);
+    color: var(--primary-color);
+}
+
+.team-logo {
+    height: 60px;
+    border-radius: 4px;
+}
+
+.plugin-image {
+    width: 70%;
+}
+
+/* 内容区域样式 */
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.plugin-intro {
+    background: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    margin-bottom: var(--spacing-xl);
+    border: 1px solid var(--border-color);
+}
+
+.plugin-intro h2 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+/* 链接按钮区域 */
+.links-section {
+    background: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.links-section h3 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+.button-group {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+}
+
+.btn {
+    padding: 0.6rem 1.5rem;
+    background: var(--primary-color);
+    color: white; /* 按钮文字始终为白色以确保对比度 */
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn:hover {
+    background: #359469;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 深色模式切换按钮 - 确保可见 */
+.theme-toggle {
+    position: fixed;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
+
+/* GitHub链接样式 */
+.github-link {
+    position: fixed;
+    top: var(--spacing-md);
+    right: calc(var(--spacing-md) + 50px); /* 位于主题切换按钮左侧 */
+    color: var(--text-color);
+    text-decoration: none;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.github-link:hover {
+    color: var(--primary-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .team-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .team-name {
+        margin-right: 0;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* 底部关于栏样式 */
+.footer {
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl) 0;
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.footer-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-section h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+/* 添加友情链接样式 */
+.friend-links {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* 团队介绍区域样式 - 优化版 */
+.team-intro {
+    max-width: 800px; /* 缩小容器宽度 */
+    margin: 0 auto 4rem; /* 容器完全居中 */
+    padding: 0 var(--spacing-md);
+    width: 100%;
+}
+
+.team-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    /* 增强蓝紫渐变效果 - 使用更鲜明的颜色对比 */
+    background: linear-gradient(90deg, #0051ff, #b400cc, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    /* 添加文字阴影增强视觉效果 */
+    text-shadow: 0 0 2px rgba(0,0,0,0.1);
+}
+
+.team-description {
+    font-size: 1.5rem; /* 显著增大描述文本 */
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: 0;
+}
+
