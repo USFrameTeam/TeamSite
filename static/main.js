@@ -68,4 +68,44 @@ document.addEventListener('DOMContentLoaded', function() {
             themeToggle.innerHTML = '🌙';
         }
     });
+
+    // 移动菜单切换功能
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+            // 切换按钮图标
+            this.textContent = mobileMenu.style.display === 'block' ? '✕' : '☰';
+        });
+    
+        // 移动版主题切换按钮
+        const mobileThemeToggle = document.querySelector('.mobile-theme-toggle');
+        if (mobileThemeToggle) {
+            mobileThemeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcons(newTheme);
+            });
+        }
+    
+        // 更新所有主题切换按钮图标
+        function updateThemeToggleIcons(theme) {
+            const themeToggle = document.querySelector('.theme-toggle');
+            const mobileThemeToggle = document.querySelector('.mobile-theme-toggle');
+            
+            if (themeToggle) {
+                themeToggle.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+            }
+            if (mobileThemeToggle) {
+                mobileThemeToggle.innerHTML = theme === 'dark' ? '☀️ 切换浅色模式' : '🌙 切换深色模式';
+            }
+        }
+    
+        // 初始化主题图标
+        updateThemeToggleIcons(savedTheme);
+    }
 });

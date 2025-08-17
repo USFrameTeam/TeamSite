@@ -2,22 +2,25 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 确认视口标签正确设置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="color-scheme" content="light dark">
-    <title>USFrameTeam - USF插件官方网站</title>
+    <title>USFrameTeam 官方网站</title>
     <link rel="stylesheet" href="static/main.css">
 </head>
 <body>
     <header class="header">
         <div class="team-info">
-            <!-- Logo在左侧，文字在右侧 -->
+            <!-- 添加汉堡菜单按钮 -->
+            <button class="mobile-menu-toggle" aria-label="打开菜单">☰</button>
+            
             <div class="logo-and-name">
                 <img src="static/pictures/USFLogo.png" alt="USF Logo" class="team-logo">
                 <h1 class="team-name">USFrameTeam</h1>
             </div>
             
-            <!-- 图标区域保持在右侧 -->
-            <div class="header-actions">
+            <!-- 原有操作区转为桌面版专用 -->
+            <div class="header-actions desktop-only">
                 <a href="https://github.com/USFrameTeam" class="github-link" target="_blank" aria-label="访问USFrameTeam的GitHub仓库">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
@@ -27,6 +30,32 @@
             </div>
         </div>
     </header>
+
+    <!-- 添加顶部链接栏 -->
+    <nav class="top-nav">
+        <div class="nav-links">
+            <a href="#" class="nav-link">首页</a>
+            <a href="https://usfdoc.pages.dev/" class="nav-link">文档</a>
+            <a href="https://d.usframeteam.top/" class="nav-link">下载</a>
+            <a href="https://usfdoc.pages.dev/team" class="nav-link">关于我们</a>
+        </div>
+    </nav>
+    
+    <!-- 移动版折叠菜单 -->
+    <div class="mobile-menu">
+        <div class="mobile-actions">
+            <a href="https://github.com/USFrameTeam" class="mobile-action-link" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                GitHub
+            </a>
+            <button class="mobile-theme-toggle" aria-label="切换深色模式">
+                🌓 切换主题
+            </button>
+        </div>
+    </div>
+</header>
 
     <main class="content">
         <section class="team-intro">
