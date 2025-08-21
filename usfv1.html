@@ -21,7 +21,7 @@
             
             <!-- 原有操作区转为桌面版专用 -->
             <div class="header-actions desktop-only">
-                <a href="https://github.com/USFrameTeam" class="github-link" target="_blank" aria-label="访问USFrameTeam的GitHub仓库">
+                <a href="https://github.com/USFrameTeam/Unkonwn-Server-Framework" class="github-link" target="_blank" aria-label="访问USFrameTeam的GitHub仓库">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                     </svg>
@@ -35,6 +35,13 @@
     <nav class="top-nav">
         <div class="nav-links">
             <a href="index.html" class="nav-link">首页</a>
+            <div class="products-dropdown">
+                <a class="products-link">产品 ▼</a>
+                <div class="dropdown-content">
+                    <a href="usfv1.html" class="dropdown-item">USFv1</a>
+                    <a href="usfv2.html" class="dropdown-item">USFv2</a>
+                </div>
+            </div>
             <a href="https://usfdoc.pages.dev/" class="nav-link">文档</a>
             <a href="https://d.usframeteam.top/" class="nav-link">下载</a>
             <a href="https://usfdoc.pages.dev/team" class="nav-link">关于我们</a>
@@ -56,6 +63,11 @@
         </div>
     </div>
 </header>
+
+<!-- 添加红色警告栏 -->
+<div class="warning-bar" style="background-color: #e74c3c; color: white; padding: 12px; text-align: center; margin: 1rem 0; border-radius: 4px; font-weight: 500;">
+    usfv1现已停止官方支持，不再对新版本进行适配！
+</div>
 
 <main class="content">
     <section class="team-intro">
