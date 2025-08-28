@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 确认视口标签正确设置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="color-scheme" content="light dark">
+    <title>关于我们 - USFrameTeam 官方网站</title>
+    <link rel="stylesheet" href="static/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="team-info">
+            <!-- 添加汉堡菜单按钮 -->
+            <button class="mobile-menu-toggle" aria-label="打开菜单">☰</button>
+            
+            <div class="logo-and-name">
+                <img src="static/pictures/USFLogo.png" alt="USF Logo" class="team-logo">
+                <h1 class="team-name">USFrameTeam</h1>
+            </div>
+            
+            <!-- 原有操作区转为桌面版专用 -->
+            <div class="header-actions desktop-only">
+                <a href="https://github.com/USFrameTeam" class="github-link" target="_blank" aria-label="访问USFrameTeam的GitHub仓库">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+                <button class="theme-toggle" aria-label="切换深色模式">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 添加顶部链接栏 -->
+    <nav class="top-nav">
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">首页</a>
+            <div class="products-dropdown">
+                <a class="products-link">产品 ▼</a>
+                <div class="dropdown-content">
+                    <a href="usfv1.html" class="dropdown-item">USFv1</a>
+                    <a href="usfv2.html" class="dropdown-item">USFv2</a>
+                </div>
+            </div>
+            <a href="https://usfdoc.pages.dev/" class="nav-link">文档</a>
+            <a href="https://d.usframeteam.top/" class="nav-link">下载</a>
+            <a href="about.html" class="nav-link">关于我们</a>
+            <a href="eula.html" class="nav-link">用户协议</a>
+        </div>
+    </nav>
+    
+    <!-- 移动版折叠菜单 -->
+    <div class="mobile-menu">  <nav class="mobile-top-nav">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">首页</a>
+            <a href="usfv1.html" class="mobile-nav-link">USFv1</a>
+            <a href="usfv2.html" class="mobile-nav-link">USFv2</a>
+            <a href="https://usfdoc.pages.dev/" class="mobile-nav-link">文档</a>
+            <a href="https://d.usframeteam.top/" class="mobile-nav-link">下载</a>
+            <a href="about.html" class="mobile-nav-link">关于我们</a>
+            <a href="eula.html" class="mobile-nav-link">用户协议</a>
+        </div>
+    </nav>
+        <div class="mobile-actions">
+            <a href="https://github.com/USFrameTeam" class="mobile-action-link" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                GitHub
+            </a>
+            <button class="mobile-theme-toggle" aria-label="切换深色模式">
+                🌓 切换主题
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="content">
+
+    <section class="about-intro">
+        <h2 class="about-title">关于我们</h2>
+        <p class="about-description">USFrameTeam是维护Unkown-Server-Framework(无名氏服务器管理框架)的官方团队</p>
+           <p class="about-small-title">团队成员</p>
+           <div class="team-members">
+            <div class="member">
+                <img src="https://q.qlogo.cn/headimg_dl?dst_uin=1390909155&spec=640&img_type=jpg" alt="EarthDLL" class="member-avatar">
+                <div class="member-info"> <!-- 添加文本容器 -->
+                    <h3 class="member-name">EarthDLL</h3>
+                    <p class="member-role">维护/文档/主程序/领导者</p>
+                    <p class="member-decription"></p>
+                    <div class="member-links">
+                        <a href="https://github.com/EarthDLL" target="_blank" class="member-link-icon" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </a>
+                        <!-- B站图标 -->
+                        <a href="https://space.bilibili.com/85607592" target="_blank" class="member-link-icon" aria-label="B站" style="opacity: 0.5;">
+                            <img src="static/pictures/bilibili.png" width="24" height="24" viewBox="0 0 1024 1024" fill="currentColor"></img>
+                        </a>
+                        <!-- 网站图标占位符 
+                        <a href="#" target="_blank" class="member-link-icon" style="opacity: 0.5;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="member">
+                <img src="http://q.qlogo.cn/headimg_dl?dst_uin=3295999260&spec=640&img_type=jpg" alt="cw1551" class="member-avatar">
+                <div class="member-info">
+                    <h3 class="member-name">凋空凌</h3>
+                    <p class="member-role">维护/主程序/V3领导者</p>
+                    <div class="member-links">
+                        <a href="https://github.com/commandwither" target="_blank" class="member-link-icon" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </a>
+                        <a href="https://space.bilibili.com/3493095672908562" target="_blank" class="member-link-icon" aria-label="B站" style="opacity: 0.5;">
+                            <img src="static/pictures/bilibili.png" width="24" height="24" viewBox="0 0 1024 1024" fill="currentColor"></img>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="member">
+                <img src="http://q.qlogo.cn/headimg_dl?dst_uin=1003725607&spec=640&img_type=jpg" alt="qcbby" class="member-avatar">
+                <div class="member-info">
+                    <h3 class="member-name">qcbby</h3>
+                    <p class="member-role">维护/文档/下载站</p>
+                    <div class="member-links">
+                        <a href="https://github.com/mcqcbby" target="_blank" class="member-link-icon" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="member">
+                <img src="http://q.qlogo.cn/headimg_dl?dst_uin=251273640&spec=640&img_type=jpg" alt="dyf189" class="member-avatar">
+                <div class="member-info">
+                    <h3 class="member-name">dyf189</h3>
+                    <p class="member-role">维护/文档/下载站/主程序/官网</p>
+                    <div class="member-links">
+                        <a href="https://github.com/dyf189" target="_blank" class="member-link-icon" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </a>
+                        <a href="https://space.bilibili.com/1888342149" target="_blank" class="member-link-icon" aria-label="B站" style="opacity: 0.5;">
+                            <img src="static/pictures/bilibili.png" width="24" height="24" viewBox="0 0 1024 1024" fill="currentColor"></img>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="member">
+                <img src="http://q.qlogo.cn/headimg_dl?dst_uin=2629213042&spec=640&img_type=jpg" alt="YYTZ666" class="member-avatar">
+                <div class="member-info">
+                    <h3 class="member-name">YYTZ666</h3>
+                    <p class="member-role">文档/下载站</p>
+                    <div class="member-links">
+                        <a href="https://github.com/YYTZ666" target="_blank" class="member-link-icon" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.zuyst.top/" target="_blank" class="member-link-icon" aria-label="网站">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="member">
+                <img src="https://q.qlogo.cn/headimg_dl?dst_uin=3342493690&spec=640&img_type=jpg" alt="兰那木涵" class="member-avatar">
+                <div class="member-info">
+                    <h3 class="member-name">兰那木涵</h3>
+                    <p class="member-role">主程序</p>
+                    <div class="member-links">
+                        <a href="https://github.com/MinecraftFish" target="_blank" class="member-link-icon" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </section>
+           
+    <section class="links-section">
+        <h3>了解更多</h3>
+        <div class="button-group">
+            <a href="about.html" class="btn">文档关于页</a>
+            <a href="https://github.com/usframeteam" class="btn">团队Github主页</a>
+        </div>
+    </section>
+</main>
+
+<script src="static/main.js"></script>
+</body>
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>联系方式</h4>
+      <p>USF社区交流QQ群: 107403959</p>
+    </div>
+    <div class="footer-section">
+      <h4>友情链接</h4>
+      <!-- 修复链接区域，将p标签替换为链接 -->
+      <div class="friend-links">
+        <a href="https://www.zuyst.top/" target="_blank" class="footer-link">ZUY Studio</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p> 2023-2025 © USFrameTeam. 保留所有权利。</p>
+    </div>
+  </div>
+</footer>
+</html>

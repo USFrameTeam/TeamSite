@@ -619,6 +619,137 @@ iframe {
     width: 100%;
 }
 
+/* 团队介绍页样式 */
+.about-intro {
+    background: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    margin: var(--spacing-xl) 0;
+}
+
+.about-title {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.about-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-color);
+}
+
+.about-small-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: calc(33.333% - 1.5rem);
+    min-width: 250px;
+}
+
+.member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.member-name {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* 成员头像样式 */
+.member-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.member-role {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.member-description {
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.member-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.member-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.member-links a:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+
+.member-link-icon {
+    color: var(--text-color);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.member-link-icon:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.member-info {
+    flex: 1; /* 让文本区域占据剩余空间 */
+}
+
+.member-name {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .header {
