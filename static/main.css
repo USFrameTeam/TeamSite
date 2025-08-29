@@ -19,6 +19,7 @@
     --spacing-md: 1rem;
     --spacing-lg: 1.5rem;
     --spacing-xl: 2rem;
+    --accent-color: #000000;
 }
 
 /* 深色模式变量 */
@@ -29,6 +30,7 @@
     --card-bg: #2d2d2d; /* 深色卡片背景 */
     --border-color: #444444;
     --shadow: 0 1px 2px rgba(0,0,0,0.3);
+    --accent-color: #ff6b6b; 
 }
 
 /* 全局背景设置 */
@@ -750,6 +752,174 @@ iframe {
     margin-bottom: 0.5rem;
 }
 
+/* 新闻介绍区域样式 */
+.news-intro {
+    padding: 2rem var(--content-padding);
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: stretch;
+  }  
+  
+  .news-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--primary-color);
+    width: 100%;
+    position: relative;
+  }
+  
+  .news-content {
+    position: relative;
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    width: calc(50% - 0.75rem);
+    border: 1px solid var(--border-color);
+    position: relative;
+  }
+  
+  /* 置顶标注容器 */
+  .news-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: transparent;
+  }
+  
+  .news-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color-light);
+  }
+  
+  /* 新闻内容标题样式 */
+  .news-content p:first-of-type {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed var(--border-color);
+  }
+
+  /* 置顶标注样式 - 可通过添加 .pinned 类来激活 */
+  .news-content.pinned {
+    border-left: 4px solid var(--accent-color);
+    background: linear-gradient(90deg, rgba(255, 107, 107, 0.05) 0%, var(--card-bg-color) 15%);
+  }
+  
+  .news-content.pinned::before {
+    background-color: var(--accent-color);
+  }
+  
+  /* 置顶标签样式 */
+  .news-pinned-label {
+    position: absolute;
+    top: -0.8rem;
+    left: 1rem;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    z-index: 10; /* 提高z-index确保标签不被遮挡 */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.2s ease;
+}
+
+  .news-pinned-label::before {
+    font-size: 0.9rem;
+  }
+  
+  .news-pinned-label::after {
+    content: '📌';
+    margin-left: 0.3rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  .news-content:hover .news-pinned-label {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .news-content:hover .news-pinned-label::after {
+    transform: rotate(15deg);
+  }
+  
+  /* 新闻列表样式 */
+  .news-content ul {
+    margin: 1rem 0;
+    padding-left: 1.8rem;
+    list-style-type: none;
+  }
+  
+  /* 自定义列表项样式 */
+  .news-content li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 1.2rem;
+  }
+
+  .news-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+  }
+
+  .news-content li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .news-buttons {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-color);
+  }
+  
+  .news-buttons .btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  
+  .news-buttons .btn:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .header {
@@ -841,5 +1011,8 @@ iframe {
         padding: 0.4rem 0;
     }
 
-
+    .news-content {
+        padding: 1.2rem;
+        width: 100%; /* 移动端恢复单列 */
+      }
 }
