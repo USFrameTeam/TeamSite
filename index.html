@@ -2,24 +2,22 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <!-- 确认视口标签正确设置 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="color-scheme" content="light dark">
     <title>USFrameTeam 官方网站</title>
-    <link rel="stylesheet" href="static/main.css">
+    <link rel="stylesheet" href="static/modern_github_style.css">
 </head>
 <body>
     <header class="header">
         <div class="team-info">
-            <!-- 添加汉堡菜单按钮 -->
             <button class="mobile-menu-toggle" aria-label="打开菜单">☰</button>
             
             <div class="logo-and-name">
-                <img src="static/pictures/USFLogo.png" alt="USF Logo" class="team-logo">
-                <h1 class="team-name">USFrameTeam</h1>
+                <!-- 将CSS生成的Logo替换为实际图片 -->
+                <img src="static/pictures/USFLogo.png" alt="USF Logo" class="team-logo" />
+                <a href="index.html" class="team-name">USFrameTeam</a>
             </div>
             
-            <!-- 原有操作区转为桌面版专用 -->
             <div class="header-actions desktop-only">
                 <a href="https://github.com/USFrameTeam" class="github-link" target="_blank" aria-label="访问USFrameTeam的GitHub仓库">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -31,10 +29,9 @@
         </div>
     </header>
 
-    <!-- 添加顶部链接栏 -->
     <nav class="top-nav">
         <div class="nav-links">
-            <a href="#" class="nav-link">首页</a>
+            <a href="index.html" class="nav-link active">首页</a>
             <div class="products-dropdown">
                 <a class="products-link">产品 ▼</a>
                 <div class="dropdown-content">
@@ -50,17 +47,19 @@
     </nav>
     
     <!-- 移动版折叠菜单 -->
-    <div class="mobile-menu">  <nav class="mobile-top-nav">
-        <div class="mobile-nav-links">
-            <a href="index.html" class="mobile-nav-link">首页</a>
-            <a href="usfv1.html" class="mobile-nav-link">USFv1</a>
-            <a href="usfv2.html" class="mobile-nav-link">USFv2</a>
-            <a href="https://usfdoc.pages.dev/" class="mobile-nav-link">文档</a>
-            <a href="https://d.usframeteam.top/" class="mobile-nav-link">下载</a>
-            <a href="about.html" class="mobile-nav-link">关于我们</a>
-            <a href="eula.html" class="mobile-nav-link">用户协议</a>
-        </div>
-    </nav>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="关闭菜单">&times;</button>
+        <nav class="mobile-top-nav">
+            <div class="mobile-nav-links">
+                <a href="index.html" class="mobile-nav-link">首页</a>
+                <a href="usfv1.html" class="mobile-nav-link">USFv1</a>
+                <a href="usfv2.html" class="mobile-nav-link">USFv2</a>
+                <a href="https://usfdoc.pages.dev/" class="mobile-nav-link">文档</a>
+                <a href="https://d.usframeteam.top/" class="mobile-nav-link">下载</a>
+                <a href="about.html" class="mobile-nav-link">关于我们</a>
+                <a href="eula.html" class="mobile-nav-link">用户协议</a>
+            </div>
+        </nav>
         <div class="mobile-actions">
             <a href="https://github.com/USFrameTeam" class="mobile-action-link" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -73,20 +72,25 @@
             </button>
         </div>
     </div>
-</header>
-
 
     <main class="content">
-        <section class="team-intro">
+        <!-- 团队介绍部分 - 占一整页 -->
+        <section class="team-intro section-transition">
+            <!-- 移除团队介绍部分的USFAD.jpg图片 -->
             <h2 class="team-title">USFrameTeam</h2>
-            <p class="team-description">我们是Minecraft Bedrock:Edtion插件  无名氏服务器管理框架(Unkonwn-Server-Framework)(以下简称USF)的开发团队</p>
+            <p class="team-description">我们是Minecraft Bedrock:Edtion插件 无名氏服务器管理框架(Unkonwn-Server-Framework)(以下简称USF)的开发团队</p>
+            <div class="team-buttons">
+                <a href="#products" class="btn">了解我们的产品</a>
+                <a href="about.html" class="btn btn-outline">关于我们</a>
+            </div>
         </section>
-
-        <!-- 添加综合产品介绍栏 -->
-        <section class="products-intro">
+    
+        <!-- 产品介绍部分 - 占一整页 -->
+        <section id="products" class="products-intro section-transition">
             <div class="products-container">
+                <!-- 在USF产品介绍部分插入products-usf.jpg图片 -->
                 <div class="products-image">
-                    <img src="static/pictures/products-usf.jpg" alt="USF产品介绍" class="product-img">
+                    <img src="static/pictures/products-usf.jpg" alt="USF产品" class="actual-product-image" />
                 </div>
                 <div class="products-content">
                     <h2 class="products-title">USF系列产品</h2>
@@ -99,79 +103,84 @@
             </div>
         </section>
 
-        <section class="products-intro">
+        <!-- 下载站介绍部分 - 占一整页 -->
+        <section class="products-intro section-transition">
             <div class="products-container">
-                    <!--<div class="products-image">
-                        <img src="static/pictures/products-usfdown.png" alt="USF下载站介绍" class="product-img">
-                    </div>-->
-                    <div class="products-content">
-                        <h2 class="products-title">USF下载站</h2>
-                        <p class="products-description">USF下载站基于静态网页，支持复杂的下载任务，满足开源软件的下载需求</p>
-                        <div class="products-buttons">
-                            <a href="https://d.usframeteam.top/" class="btn">USF下载站</a>
-                            <a href="https://github.com/YYTZ666/usfdown" class="btn">Github</a>
-                        </div>
+                <div class="products-content">
+                    <h2 class="products-title">USF下载站</h2>
+                    <p class="products-description">USF下载站基于静态网页，支持复杂的下载任务，满足开源软件的下载需求</p>
+                    <div class="products-buttons">
+                        <a href="https://d.usframeteam.top/" class="btn">USF下载站</a>
+                        <a href="https://github.com/YYTZ666/usfdown" class="btn btn-outline">Github</a>
                     </div>
+                </div>
+                <div class="products-image" data-product-name="Download"></div>
             </div>
         </section>
 
-        <section class="news-intro">
+        <!-- 团队动态部分 - 占一整页 -->
+        <section class="news-intro section-transition">
             <h2 class="news-title">团队动态&新闻</h2>
-            <div class="news-content pinned">
-                <span class="news-pinned-label">置顶</span>
-                <p>USF社区贡献者招募计划</p>
-                <ul>
-                    <li>具体情况请点击了解更多</li>
-                </ul>
-                <div class="news-buttons">
-                    <a href="https://github.com/USFrameTeam/.github/discussions/1" class="btn">了解更多</a>
+            <div class="news-grid">
+                <div class="news-content pinned">
+                    <span class="news-pinned-label">置顶</span>
+                    <h3>USF社区贡献者招募计划</h3>
+                    <ul>
+                        <li>具体情况请点击了解更多</li>
+                    </ul>
+                    <div class="news-buttons">
+                        <a href="https://github.com/USFrameTeam/.github/discussions/1" class="btn">了解更多</a>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <h3>USFrameTeam官网上线</h3>
+                    <ul>
+                        <li>一站式导航</li>
+                        <li>USF动态快速浏览</li>
+                        <li>快速了解USF</li>
+                    </ul>
                 </div>
             </div>
-            <div class="news-content">
-                <p>USFrameTeam官网上线</p>
-                <ul>
-                    <li>一站式导航</li>
-                    <li>USF动态快速浏览</li>
-                    <li>快速了解USF</li>
-                </ul>
-            </div>
         </section>
 
-        <section class="links-section">
+        <!-- 链接部分 - 占一整页 -->
+        <section class="links-section section-transition">
             <h3>USF相关链接</h3>
-            <div class="button-group">
+            <div class="button-grid">
                 <a href="https://d.usframeteam.top/" class="btn">下载站</a>
                 <a href="https://usftest.usframeteam.top/" class="btn">测试版本下载站</a>
                 <a href="https://github.com/USFrameTeam/Unknown-Server-Framework" class="btn">Github</a>
             </div>
         </section>
 
-        <section class="links-section">
+        <!-- 授权帖子部分 - 占一整页 -->
+        <section class="links-section section-transition">
            <h3>USF授权帖子</h3>
-           <div class="button-group">
+           <div class="button-grid">
                 <a href="https://www.minebbs.com/resources/usf-v.5475/" class="btn">MineBBS</a>
                 <a href="https://klpbbs.com/thread-131213-1-1.html" class="btn">苦力怕论坛</a>
            </div>
+        </section>
+    </main>
 
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>联系方式</h4>
+                <p>USF社区交流QQ群: 107403959</p>
+            </div>
+            <div class="footer-section">
+                <h4>友情链接</h4>
+                <div class="friend-links">
+                    <a href="https://www.zuyst.top/" target="_blank" class="footer-link">ZUY Studio</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p> 2023-2025 © USFrameTeam. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="static/main.js"></script>
-  </body>
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>联系方式</h4>
-        <p>USF社区交流QQ群: 107403959</p>
-      </div>
-      <div class="footer-section">
-        <h4>友情链接</h4>
-        <!-- 修复链接区域，将p标签替换为链接 -->
-        <div class="friend-links">
-          <a href="https://www.zuyst.top/" target="_blank" class="footer-link">ZUY Studio</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p> 2023-2025 © USFrameTeam. 保留所有权利。</p>
-      </div>
-    </div>
-  </footer>
+</body>
 </html>

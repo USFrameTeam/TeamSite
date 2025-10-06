@@ -1,3 +1,5 @@
+// 完全重写main.js文件，整合主题切换功能，修复产品下拉菜单问题
+
 // 页面加载完成后执行
 document.addEventListener('DOMContentLoaded', function() {
     // 平滑滚动效果 - 仅对内部锚点链接生效
@@ -32,87 +34,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100 + (index * 200));
     });
 
-    // 深色模式切换功能 - 确保按钮创建
-    // 首先检查是否已存在切换按钮，如果不存在则创建
-    let themeToggle = document.querySelector('.theme-toggle');
-    if (!themeToggle) {
-        themeToggle = document.createElement('button');
-        themeToggle.className = 'theme-toggle';
-        themeToggle.innerHTML = '🌓';
-        themeToggle.setAttribute('aria-label', '切换深色模式');
-        document.body.appendChild(themeToggle);
-    }
-
-    // 检查保存的主题偏好，默认为浅色模式
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-
-    // 更新按钮图标
-    if (savedTheme === 'dark') {
-        themeToggle.innerHTML = '☀️';
-    } else {
-        themeToggle.innerHTML = '🌙';
-    }
-
-    // 切换主题
-    themeToggle.addEventListener('click', function() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-
-        // 更新按钮图标
-        if (newTheme === 'dark') {
-            themeToggle.innerHTML = '☀️';
-        } else {
-            themeToggle.innerHTML = '🌙';
+    // 统一的主题切换功能 - 合并原有的两个实现
+    function initThemeToggle() {
+        // 首先检查是否已存在切换按钮，如果不存在则创建
+        let themeToggle = document.querySelector('.theme-toggle');
+        if (!themeToggle) {
+            themeToggle = document.createElement('button');
+            themeToggle.className = 'theme-toggle';
+            themeToggle.innerHTML = '🌓';
+            themeToggle.setAttribute('aria-label', '切换深色模式');
+            document.body.appendChild(themeToggle);
         }
-    });
 
-    // 产品下拉菜单功能
-    const productsLink = document.querySelector('.products-link');
-    const productsDropdown = document.querySelector('.products-dropdown');
-    
-    if (productsLink && productsDropdown) {
-        productsLink.addEventListener('click', function(e) {
-            // 阻止默认行为
-            e.preventDefault();
-            
-            // 切换下拉菜单显示状态
-            productsDropdown.classList.toggle('active');
-        });
+        // 检查保存的主题偏好，默认使用系统主题
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
         
-        // 点击其他地方关闭下拉菜单
-        document.addEventListener('click', function(e) {
-            if (!productsDropdown.contains(e.target)) {
-                productsDropdown.classList.remove('active');
-            }
-        });
-    }
-    
-    // 移动菜单切换功能
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    
-    if (mobileMenuToggle && mobileMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-            // 切换按钮图标
-            this.textContent = mobileMenu.style.display === 'block' ? '✕' : '☰';
-        });
-    
-        // 移动版主题切换按钮
-        const mobileThemeToggle = document.querySelector('.mobile-theme-toggle');
-        if (mobileThemeToggle) {
-            mobileThemeToggle.addEventListener('click', function() {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateThemeToggleIcons(newTheme);
-            });
+        // 设置初始主题
+        document.documentElement.setAttribute('data-theme', initialTheme);
+        
+        // 更新所有主题切换按钮图标
+        updateThemeToggleIcons(initialTheme);
+
+        // 切换主题的通用函数
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeToggleIcons(newTheme);
         }
-    
+
         // 更新所有主题切换按钮图标
         function updateThemeToggleIcons(theme) {
             const themeToggle = document.querySelector('.theme-toggle');
@@ -125,8 +78,77 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileThemeToggle.innerHTML = theme === 'dark' ? '☀️ 切换浅色模式' : '🌙 切换深色模式';
             }
         }
-    
-        // 初始化主题图标
-        updateThemeToggleIcons(savedTheme);
+
+        // 绑定主题切换事件
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        const mobileThemeToggle = document.querySelector('.mobile-theme-toggle');
+        if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
     }
+
+    // 初始化主题切换功能
+    initThemeToggle();
+
+    // 产品下拉菜单功能 - 修复电脑端无法点开的问题
+    const productsLink = document.querySelector('.products-link');
+    const productsDropdown = document.querySelector('.products-dropdown');
+    
+    if (productsLink && productsDropdown) {
+        // 移除之前的JS控制，只使用CSS hover实现
+        // 这样避免了点击事件和hover效果的冲突
+        
+        // 保留点击外部区域关闭下拉菜单的功能
+        document.addEventListener('click', function(e) {
+            // 这个功能不再需要，因为我们只使用hover效果
+            // 如果用户点击了下拉菜单外部，菜单会自然关闭（因为不再hover）
+        });
+    }
+    
+    // 移动菜单切换功能
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (mobileMenuToggle && mobileMenuClose && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    
+        mobileMenuClose.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    
+        // 点击移动菜单外部关闭菜单
+        document.addEventListener('click', function(event) {
+            if (mobileMenu && mobileMenu.classList.contains('active') && 
+                !mobileMenu.contains(event.target) && 
+                !mobileMenuToggle.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+});
+
+// 添加滚动动画效果
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.section-transition');
+    
+    function checkVisibility() {
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const isVisible = (rect.top <= window.innerHeight * 0.75 && rect.bottom >= 0);
+            
+            if (isVisible) {
+                section.classList.add('visible');
+            }
+        });
+    }
+    
+    // 初始检查
+    checkVisibility();
+    
+    // 滚动时检查
+    window.addEventListener('scroll', checkVisibility);
 });
