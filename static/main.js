@@ -88,21 +88,57 @@ document.addEventListener('DOMContentLoaded', function() {
     // 初始化主题切换功能
     initThemeToggle();
 
-    // 产品下拉菜单功能 - 修复电脑端无法点开的问题
-    const productsLink = document.querySelector('.products-link');
-    const productsDropdown = document.querySelector('.products-dropdown');
-    
-    if (productsLink && productsDropdown) {
-        // 移除之前的JS控制，只使用CSS hover实现
-        // 这样避免了点击事件和hover效果的冲突
+    // 产品下拉菜单功能 - 完全重写为更简单可靠的实现
+    // 产品下拉菜单功能
+    function initProductsDropdown() {
+        // 获取下拉菜单相关元素
+        const productsLink = document.querySelector('.products-link');
+        const productsDropdown = document.querySelector('.products-dropdown');
+        const dropdownContent = document.querySelector('.dropdown-content');
         
-        // 保留点击外部区域关闭下拉菜单的功能
+        // 确保所有元素都存在
+        if (!productsLink || !productsDropdown || !dropdownContent) {
+            console.log('Products dropdown elements not found');
+            return;
+        }
+        
+        // 简单的点击事件处理
+        productsLink.addEventListener('click', function(e) {
+            // 阻止默认行为和事件冒泡
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // 直接切换下拉菜单的显示/隐藏
+            dropdownContent.classList.toggle('active');
+            
+            // 强制重绘以确保样式应用
+            void dropdownContent.offsetWidth;
+        });
+        
+        // 点击页面其他地方关闭下拉菜单
         document.addEventListener('click', function(e) {
-            // 这个功能不再需要，因为我们只使用hover效果
-            // 如果用户点击了下拉菜单外部，菜单会自然关闭（因为不再hover）
+            // 如果点击的不是下拉菜单或其内部元素
+            if (!productsDropdown.contains(e.target)) {
+                dropdownContent.classList.remove('active');
+            }
+        });
+        
+        // 为了确保兼容性，添加键盘事件支持
+        document.addEventListener('keydown', function(e) {
+            // 按ESC键关闭下拉菜单
+            if (e.key === 'Escape') {
+                dropdownContent.classList.remove('active');
+            }
         });
     }
-    
+
+    // 确保在DOM加载完成后初始化
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initProductsDropdown);
+    } else {
+        initProductsDropdown();
+    }
+
     // 移动菜单切换功能
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileMenuClose = document.querySelector('.mobile-menu-close');
@@ -129,10 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
-
-// 添加滚动动画效果
-document.addEventListener('DOMContentLoaded', function() {
+    
+    // 添加滚动动画效果
     const sections = document.querySelectorAll('.section-transition');
     
     function checkVisibility() {

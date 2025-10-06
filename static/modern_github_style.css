@@ -32,6 +32,7 @@
     --spacing-xl: 2rem;
     --spacing-2xl: 3rem;
     --spacing-3xl: 4rem;
+    --spacing-4xl: 5rem;
     --accent-color: #f43f5e;
     --success-color: #10b981;
     --transition: all 0.2s ease;
@@ -93,21 +94,7 @@ body {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-}
-
-/* 用CSS生成的Logo替代原有图片 */
-.team-logo {
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    border-radius: var(--border-radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    flex: 1; /* 占据剩余空间，确保居中 */
 }
 
 .team-name {
@@ -211,13 +198,15 @@ body {
     background: var(--bg-tertiary);
 }
 
-/* 产品下拉菜单样式 */
 .products-dropdown {
     position: relative;
     display: inline-block;
+    z-index: 1000;
 }
 
 .products-link {
+    position: relative;
+    /* 保留原有样式 */
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
@@ -228,6 +217,7 @@ body {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
+    cursor: pointer;
 }
 
 .products-link:hover {
@@ -241,17 +231,21 @@ body {
     background-color: var(--card-bg);
     min-width: 180px;
     box-shadow: var(--shadow-lg);
-    z-index: 100;
+    z-index: 9999; /* 大幅提高z-index确保在所有元素上方 */
     border-radius: var(--border-radius-md);
     border: 1px solid var(--border-color);
     top: 100%;
     left: 0;
     margin-top: var(--spacing-xs);
-    transition: var(--transition);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 0;
+    transform: translateY(-5px);
 }
 
 .products-dropdown:hover .dropdown-content {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
     animation: fadeIn 0.1s ease-out;
 }
 
@@ -272,6 +266,15 @@ body {
     background-color: var(--bg-tertiary);
     color: var(--primary-color);
 }
+
+.dropdown-content.active {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: fadeIn 0.1s ease-out;
+    pointer-events: all;
+}
+
 
 /* 主内容区域 - 一页一部分的布局 */
 .content {
@@ -752,14 +755,8 @@ body {
 
 /* 动画效果 */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideIn {
@@ -822,6 +819,24 @@ body {
 }
 
 @media (max-width: 768px) {
+    .team-intro {
+        padding-top: 8rem; /* 增加移动端的上内边距 */
+        min-height: calc(100vh - var(--header-height) - 20px); /* 调整最小高度 */
+    }
+
+    .team-info {
+        justify-content: space-between;
+    }
+    
+    .logo-and-name {
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .team-name {
+        font-size: 1.1rem; /* 调整移动端字体大小 */
+    }
+
     .team-logo {
         width: 32px;
         height: 32px;
