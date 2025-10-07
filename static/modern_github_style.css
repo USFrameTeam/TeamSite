@@ -198,84 +198,6 @@ body {
     background: var(--bg-tertiary);
 }
 
-.products-dropdown {
-    position: relative;
-    display: inline-block;
-    z-index: 1000;
-}
-
-.products-link {
-    position: relative;
-    /* 保留原有样式 */
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--border-radius-sm);
-    white-space: nowrap;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    cursor: pointer;
-}
-
-.products-link:hover {
-    color: var(--text-color);
-    background: var(--bg-tertiary);
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--card-bg);
-    min-width: 180px;
-    box-shadow: var(--shadow-lg);
-    z-index: 9999; /* 大幅提高z-index确保在所有元素上方 */
-    border-radius: var(--border-radius-md);
-    border: 1px solid var(--border-color);
-    top: 100%;
-    left: 0;
-    margin-top: var(--spacing-xs);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    opacity: 0;
-    transform: translateY(-5px);
-}
-
-.products-dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-    animation: fadeIn 0.1s ease-out;
-}
-
-.dropdown-content a {
-    color: var(--text-color);
-    padding: var(--spacing-md);
-    text-decoration: none;
-    display: block;
-    transition: var(--transition);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.dropdown-content a:last-child {
-    border-bottom: none;
-}
-
-.dropdown-content a:hover {
-    background-color: var(--bg-tertiary);
-    color: var(--primary-color);
-}
-
-.dropdown-content.active {
-    display: block !important;
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    animation: fadeIn 0.1s ease-out;
-    pointer-events: all;
-}
-
-
 /* 主内容区域 - 一页一部分的布局 */
 .content {
     max-width: 1200px;
@@ -927,3 +849,4 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
