@@ -86,61 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 初始化主题切换功能
-    initThemeToggle();
-
-    // 产品下拉菜单功能 - 完全重写为更简单可靠的实现
-    // 产品下拉菜单功能
-    // 全新的简化下拉菜单功能
-    function initSimpleDropdown() {
-        console.log('开始初始化简化版下拉菜单');
-        
-        const dropdownBtn = document.getElementById('simple-dropdown-btn');
-        const dropdownContent = document.getElementById('simple-dropdown-content');
-        const dropdown = document.querySelector('.simple-dropdown');
-        
-        // 检查元素是否存在
-        if (!dropdownBtn || !dropdownContent || !dropdown) {
-            console.log('下拉菜单元素未找到');
-            return;
-        }
-        
-        console.log('下拉菜单元素已找到，准备绑定事件');
-        
-        // 点击按钮切换显示状态
-        dropdownBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            console.log('按钮被点击，切换下拉菜单显示状态');
-            dropdownContent.classList.toggle('show');
-            
-            // 强制重绘
-            void dropdownContent.offsetWidth;
-        });
-        
-        // 点击页面其他地方关闭下拉菜单
-        document.addEventListener('click', function(e) {
-            if (!dropdown.contains(e.target)) {
-                dropdownContent.classList.remove('show');
-            }
-        });
-        
-        // ESC键关闭下拉菜单
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                dropdownContent.classList.remove('show');
-            }
-        });
-        
-        console.log('简化版下拉菜单初始化完成');
-    }
-    
-    // 确保页面加载完成后初始化
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSimpleDropdown);
-    } else {
-        initSimpleDropdown();
-    }
+    initThemeToggle(); 
 
     // 移动菜单切换功能
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
