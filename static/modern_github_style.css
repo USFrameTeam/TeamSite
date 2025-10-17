@@ -491,6 +491,15 @@ body {
     gap: var(--spacing-lg);
 }
 
+.products-label {
+    background: var(--primary-color);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-xs);
+    border-radius: var(--border-radius-sm);
+    display: inline-block;
+    width: 100px;
+}
+
 /* 底部样式 - 仿GitHub页脚 */
 .footer {
     background: var(--bg-secondary);
