@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 确认视口标签正确设置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="color-scheme" content="light dark">
+    <title>下载 - USFrameTeam 官方网站</title>
+    <link rel="stylesheet" href="../static/modern_github_style.css">
+    <link rel="stylesheet" href="config/style.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="team-info">
+            <!-- 添加汉堡菜单按钮 -->
+            <button class="mobile-menu-toggle" aria-label="打开菜单">☰</button>
+            
+            <div class="logo-and-name">
+                <img src="../static/pictures/USFLogo.png" alt="USF Logo" class="team-logo">
+                <h1 class="team-name">USFrameTeam</h1>
+            </div>
+            
+            <!-- 原有操作区转为桌面版专用 -->
+            <div class="header-actions desktop-only">
+                <a href="https://github.com/USFrameTeam" class="github-link" target="_blank" aria-label="访问USFrameTeam的GitHub仓库">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+                <button class="theme-toggle" aria-label="切换深色模式">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 添加顶部链接栏 -->
+    <nav class="top-nav">
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">首页</a>
+            <a href="../usfv1.html" class="nav-link">USFv1</a>
+            <a href="../usfv2.html" class="nav-link">USFv2</a>
+            <a href="https://usfdoc.pages.dev/" class="nav-link">文档</a>
+            <a href="https://d.usframeteam.top/" class="nav-link active">下载</a>
+            <a href="../about.html" class="nav-link">关于我们</a>
+            <a href="../eula.html" class="nav-link">用户协议</a>
+        </div>
+    </nav>
+    
+    <!-- 移动版折叠菜单 -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="关闭菜单">&times;</button>
+        <nav class="mobile-top-nav">
+            <div class="mobile-nav-links">
+                <a href="../index.html" class="mobile-nav-link">首页</a>
+                <a href="../usfv1.html" class="mobile-nav-link">USFv1</a>
+                <a href="../usfv2.html" class="mobile-nav-link">USFv2</a>
+                <a href="https://usfdoc.pages.dev/" class="mobile-nav-link">文档</a>
+                <a href="https://d.usframeteam.top/" class="mobile-nav-link">下载</a>
+                <a href="../about.html" class="mobile-nav-link">关于我们</a>
+                <a href="../eula.html" class="mobile-nav-link active">用户协议</a>
+            </div>
+        </nav>
+        <div class="mobile-actions">
+            <a href="https://github.com/USFrameTeam" class="mobile-action-link" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                GitHub
+            </a>
+            <button class="mobile-theme-toggle" aria-label="切换深色模式">
+                🌓 切换主题
+            </button>
+        </div>
+    </div>
+
+</header>
+
+    <section style="margin-top:50px;" role="main">
+        <div class="container">
+
+            <!-- 筛选器 -->
+            <div class="filter-container" role="search">
+                <!-- 搜索和切换按钮 -->
+                <div class="search-area">
+                    <form id="search-form" class="search-form" role="search">
+                        <input type="text" 
+                               id="search-input" 
+                               class="search-input" 
+                               placeholder="输入USF版本号或你的MC客户端版本（X.XX.XX）即可检索" 
+                               aria-label="搜索插件版本">
+                    </form>
+                    <button class="toggle-filters-btn" 
+                            aria-expanded="false" 
+                            aria-controls="filter-options">
+                        筛选选项 
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M7 10l5 5 5-5z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- 筛选选项 -->
+                <div class="filter-groups">
+                    <div class="filter-group" role="group" aria-label="版本类型">
+                        <div class="filter-group-title">版本类型</div>
+                        <div class="filter-buttons" role="radiogroup" aria-labelledby="version-type-label">
+                            <button class="filter-btn selected" data-tag="全部">全部</button>
+                            <button class="filter-btn" data-tag="正式版">正式版</button>
+                            <button class="filter-btn" data-tag="测试版">测试版</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group" role="group" aria-label="游戏版本">
+                        <div class="filter-group-title">游戏版本</div>
+                        <div class="filter-buttons" role="radiogroup" aria-labelledby="game-version-label">
+                            <button class="filter-btn selected" data-tag="全部">全部</button>
+                            <button class="filter-btn" data-tag="1.22">1.22</button>
+                            <button class="filter-btn" data-tag="1.21">1.21</button>
+                            <button class="filter-btn" data-tag="1.20">1.20</button>
+                            <button class="filter-btn" data-tag="1.19">1.19</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="download-list" role="list" aria-label="插件下载列表"></div>
+            <p id="no-more" role="status" aria-live="polite">已经到底啦 (｡･ω･｡)</p>
+
+            <div class="modal-overlay" role="presentation"></div>
+            <div id="modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+                <div id="modal-title" class="modal-header">分享链接</div>
+                <p id="download-url" role="textbox" aria-readonly="true"></p>
+                <div class="modal-footer">
+                    <button class="btn modal-close" aria-label="关闭对话框">关闭</button>
+                    <button class="btn" id="copy-url" aria-label="复制链接">复制链接</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://s21.ax1x.com/2024/10/04/pA8E8hj.png" alt="Logo" width="100" height="auto">
+            </div>
+            <div class="footer-rights">
+                ©2021-至今 ZUY Studio＆USF开发团队 版权所有All Rights Reserved.
+                <div class="footer-links">
+                    <a href="https://github.com/YYTZ666/">由Stuwin强势驱动</a> |
+                    <a href="https://zuyst.top/about/user">免责声明</a> |
+                    <a href="https://zuyst.top">关于我们</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../static/modern_main.js"></script>
+    <script src="config/accessibility.js"></script>
+    <script src="config/file.js"></script>
+    <script src="config/ad.js"></script>
+    <script src="config/script.js"></script>
+    <script>
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded - 开始初始化下载页面');
+            
+            // 检查files数组是否已加载
+            if (typeof files === 'undefined') {
+                console.error('files数组未定义，请检查file.js是否正确加载');
+                return;
+            }
+            
+            console.log('files数组已加载，包含', files.length, '个项目');
+            
+            // 初始化筛选按钮事件监听
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tag = this.dataset.tag;
+                    console.log('筛选按钮点击:', tag);
+                    
+                    // 移除同组中其他按钮的选中状态
+                    const buttonGroup = this.closest('.filter-buttons');
+                    buttonGroup.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('selected');
+                        btn.setAttribute('aria-checked', 'false');
+                    });
+                    
+                    // 设置当前按钮的选中状态
+                    this.classList.add('selected');
+                    this.setAttribute('aria-checked', 'true');
+                    
+                    // 重新渲染文件列表
+                    if (typeof renderFiles === 'function') {
+                        renderFiles();
+                    } else {
+                        console.error('renderFiles函数未定义');
+                    }
+                });
+            });
+            
+            // 初始化搜索功能
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    console.log('搜索输入:', this.value);
+                    if (typeof renderFiles === 'function') {
+                        renderFiles();
+                    }
+                });
+            }
+            
+            // 初始渲染文件列表
+            if (typeof renderFiles === 'function') {
+                console.log('调用renderFiles进行初始渲染');
+                renderFiles();
+            } else {
+                console.error('renderFiles函数未定义，无法渲染文件列表');
+                document.getElementById('download-list').innerHTML = 
+                    '<div class="error-message">无法加载文件列表，请刷新页面重试</div>';
+            }
+            
+            // 初始化筛选器展开/收起功能
+            const toggleBtn = document.querySelector('.toggle-filters-btn');
+            const filterGroups = document.querySelector('.filter-groups');
+            if (toggleBtn && filterGroups) {
+                toggleBtn.addEventListener('click', function() {
+                    const isExpanded = filterGroups.classList.contains('expanded');
+                    filterGroups.classList.toggle('expanded');
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    
+                    // 更新按钮中的箭头方向
+                    const svg = this.querySelector('svg');
+                    if (svg) {
+                        svg.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+                    }
+                });
+            }
+            
+            console.log('下载页面初始化完成');
+        });
+        
+        // 添加错误处理
+        window.addEventListener('error', function(e) {
+            console.error('页面发生错误:', e.error);
+        });
+    </script>
+</body>
+
+</html>
