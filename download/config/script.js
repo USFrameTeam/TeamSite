@@ -225,7 +225,7 @@ function resetAndRenderFiles() {
 
 // 打开分享弹窗
 function openShareModal(link) {
-    downloadUrl.textContent = `https://usfdown.zuyst.top/${link}`;
+    downloadUrl.textContent = `https://team.backup.usframeteam.top/${link}`;
     document.querySelector('.modal-overlay').classList.add('show');
     modal.classList.add('show');
 }
