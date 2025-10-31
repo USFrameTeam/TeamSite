@@ -85,6 +85,27 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
     }
 
+        // 产品下拉菜单功能
+        const productsLink = document.querySelector('.products-link');
+        const productsDropdown = document.querySelector('.products-dropdown');
+        
+        if (productsLink && productsDropdown) {
+            productsLink.addEventListener('click', function(e) {
+                // 阻止默认行为
+                e.preventDefault();
+                
+                // 切换下拉菜单显示状态
+                productsDropdown.classList.toggle('active');
+            });
+            
+            // 点击其他地方关闭下拉菜单
+            document.addEventListener('click', function(e) {
+                if (!productsDropdown.contains(e.target)) {
+                    productsDropdown.classList.remove('active');
+                }
+            });
+        }
+
     // 初始化主题切换功能
     initThemeToggle(); 
 

@@ -500,6 +500,59 @@ body {
     width: 100px;
 }
 
+.products-dropdown {
+    display: flex;
+    gap: var(--spacing-md);
+    overflow-x: auto;
+}
+
+.products-dropdown.active .dropdown-content {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--card-bg);
+    min-width: 180px; /* 加宽菜单 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 增强阴影效果 */
+    z-index: 100; /* 提高层级避免被遮挡 */
+    border-radius: 8px; /* 更大圆角 */
+    border: 1px solid var(--border-color);
+    top: 100%; /* 调整距离 */
+    left: 130px; /* 向右偏移20px，避免过于靠左 */
+    margin-top: 4px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-content .dropdown-item {
+    color: var(--text-color);
+    padding: 10px 16px; /* 调整内边距 */
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: all 0.2s ease; /* 菜单项过渡 */
+}
+
+.products-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.products-link:hover {
+    color: var(--text-color);
+    background: var(--bg-tertiary);
+}
+
 /* 底部样式 - 仿GitHub页脚 */
 .footer {
     background: var(--bg-secondary);
