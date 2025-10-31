@@ -2,6 +2,24 @@
 
 const files = [
     {
+        name: "USF0.7.17B",
+        description: "适配1.21.120",
+        changelog:
+       [
+                "兼容1.21.120",
+        ],
+        contributors: [
+            "USF开发团队"
+        ],
+        supportVersions: ["1.21.120"],
+        releaseDate: "2025-10-31",
+        tags: ["测试版", "1.21"],
+        downloadLink: "/download/files/main/USF0.7.17B.zip",
+        feedbackLink: "https://github.com/YYTZ666/usfdown/issues/new/choose",
+        urgentUpdate: false // 标记为紧急更新
+    },
+    
+    {
         name: "NeoUSF(USFV3)-3.1.8",
         description: "具体查看USFV3 Github仓库",
         changelog:
