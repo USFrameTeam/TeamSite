@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="color-scheme" content="light dark">
     <title>新闻动态 - USFrameTeam 官方网站</title>
-    <link rel="stylesheet" href="static/modern_github_style.css">
-    <link rel="stylesheet" href="static/download-style.css">
+    <link rel="stylesheet" href="../static/modern_github_style.css">
+    <link rel="stylesheet" href="static/main.css">
 </head>
 <body>
     <header class="header">
@@ -14,8 +14,8 @@
             <button class="mobile-menu-toggle" aria-label="打开菜单">☰</button>
             
             <div class="logo-and-name">
-                <img src="static/pictures/USFLogo.png" alt="USF Logo" class="team-logo" />
-                <a href="index.html" class="team-name">USFrameTeam</a>
+                <img src="../static/pictures/USFLogo.png" alt="USF Logo" class="team-logo" />
+                <a href="../index.html" class="team-name">USFrameTeam</a>   
             </div>
             
             <div class="header-actions desktop-only">
@@ -32,7 +32,13 @@
     <nav class="top-nav">
         <div class="nav-links">
             <a href="../index.html" class="nav-link active">首页</a>
-            <a href="../index.html#products" class="nav-link">产品</a>
+            <div class="products-dropdown">
+                <a class="products-link">产品</a>
+                <div class="dropdown-content">
+                    <a href="usfv1.html" class="dropdown-item">USFv1</a>
+                    <a href="usfv2.html" class="dropdown-item">USFv2</a>
+                </div>
+            </div>
             <a href="https://usfdoc.pages.dev/" class="nav-link">文档</a>
             <a href="https://d.usframeteam.top/" class="nav-link">下载</a>
             <a href="../about.html" class="nav-link">关于我们</a>
@@ -45,13 +51,13 @@
         <button class="mobile-menu-close" aria-label="关闭菜单">&times;</button>
         <nav class="mobile-top-nav">
             <div class="mobile-nav-links">
-                <a href="index.html" class="mobile-nav-link">首页</a>
-                <a href="usfv1.html" class="mobile-nav-link">USFv1</a>
-                <a href="usfv2.html" class="mobile-nav-link">USFv2</a>
+                <a href="../index.html" class="mobile-nav-link">首页</a>
+                <a href="../usfv1.html" class="mobile-nav-link">USFv1</a>
+                <a href="../usfv2.html" class="mobile-nav-link">USFv2</a>
                 <a href="https://usfdoc.pages.dev/" class="mobile-nav-link">文档</a>
                 <a href="https://d.usframeteam.top/" class="mobile-nav-link">下载</a>
-                <a href="about.html" class="mobile-nav-link">关于我们</a>
-                <a href="eula.html" class="mobile-nav-link">用户协议</a>
+                <a href="../about.html" class="mobile-nav-link">关于我们</a>
+                <a href="../eula.html" class="mobile-nav-link">用户协议</a>
             </div>
         </nav>
         <div class="mobile-actions">
@@ -65,4 +71,28 @@
                 🌓 切换主题
             </button>
         </div>
-    </div>
+    </div>    
+    
+    
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>联系方式</h4>
+                <p>USF社区交流QQ群: 107403959</p>
+            </div>
+            <div class="footer-section">
+                <h4>友情链接</h4>
+                <div class="friend-links">
+                    <a href="https://www.zuyst.top/" target="_blank" class="footer-link">ZUY Studio</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p> 2023-2025 © USFrameTeam. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="static/modern_main.js"></script>
+</body>
+</html>
