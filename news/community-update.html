@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="color-scheme" content="light dark">
-    <title>新闻动态 - USFrameTeam 官方网站</title>
+    <title>USF社区贡献者招募计划 - USFrameTeam 官方网站</title>
     <link rel="stylesheet" href="../static/modern_github_style.css">
     <link rel="stylesheet" href="static/main.css">
 </head>
@@ -82,25 +82,25 @@
             <div class="sidebar-content">
                 <h3 class="sidebar-title">新闻分类</h3>
                 <nav class="sidebar-nav">
-                    <a href="#all" class="sidebar-link active">全部新闻</a>
-                    <a href="#updates" class="sidebar-link">版本更新</a>
-                    <a href="#announcements" class="sidebar-link">团队公告</a>
-                    <a href="#events" class="sidebar-link">社区活动</a>
+                    <a href="index.html#all" class="sidebar-link">全部新闻</a>
+                    <a href="index.html#updates" class="sidebar-link">版本更新</a>
+                    <a href="index.html#announcements" class="sidebar-link">团队公告</a>
+                    <a href="index.html#events" class="sidebar-link">社区活动</a>
                 </nav>
 
                 <h3 class="sidebar-title">热门新闻</h3>
                 <div class="hot-news">
-                    <a href="#usf-0-7-17b" class="hot-news-link">
+                    <a href="index.html#usf-0-7-17b" class="hot-news-link">
                         <span class="hot-news-date">2025-10-29</span>
                         <span class="hot-news-title">USF 0.7.17B 发布</span>
                     </a>
-                    <a href="#website-launch" class="hot-news-link">
-                        <span class="hot-news-date">2025-8-17</span>
-                        <span class="hot-news-title">USFrameTeam官网上线</span>
-                    </a>
-                    <a href="#community-recruitment" class="hot-news-link">
-                        <span class="hot-news-date">2025-8-3</span>
+                    <a href="community-update.html" class="hot-news-link">
+                        <span class="hot-news-date">2025-10-15</span>
                         <span class="hot-news-title">USF社区贡献者招募</span>
+                    </a>
+                    <a href="index.html#website-launch" class="hot-news-link">
+                        <span class="hot-news-date">2025-09-30</span>
+                        <span class="hot-news-title">USFrameTeam官网上线</span>
                     </a>
                 </div>
             </div>
@@ -109,11 +109,11 @@
         <!-- 主内容 -->
         <main class="news-content">
             <div class="news-header">
-                <h1>USFrameTeam 新闻动态</h1>
-                <p class="news-description">欢迎查看USFrameTeam的最新动态和更新信息</p>
+                <h1>USF社区贡献者招募计划</h1>
+                <p class="news-description">加入我们，一起建设更好的USF生态系统</p>
             </div>
 
-            <!-- 置顶新闻 -->
+            <!-- 详细新闻内容 -->
             <div class="news-item pinned">
                 <div class="news-item-header">
                     <span class="news-pinned">置顶</span>
@@ -124,89 +124,56 @@
                     </div>
                 </div>
                 <div class="news-item-content">
-                    <p>USFrameTeam现正面向社区招募贡献者，无论您是有编程经验的开发者，还是热爱测试和提供反馈的玩家，我们都欢迎您的加入！</p>
+                    <h3>USF项目维护现状</h3>
+                    <p>目前USF更新主力为EarthDLL，基本没有其他维护人员。由凋空凌重构的USFV3暂时不能代替USF使用，所以USFV2陷入了无人维护的境地。加上大部分社区贡献者都是学生，由于学业压力很可能USF不久后将会停止更新。</p>
+                    
+                    <h3>我们为什么需要你？</h3>
+                    <p>USF是一个Minecraft基岩版原版服务器/存档的辅助工具，它解决了众多原版服务器没有领地、商店等功能的问题。我们希望能够持续维护和改进这个项目，让USF变得更好。</p>
+                    
+                    <h3>招募要求</h3>
+                    <p>如果你对以下任何一个方向感兴趣，并且有一定的经验或学习热情，我们都欢迎你的加入：</p>
                     <ul>
-                        <li>参与USF的开发和改进</li>
-                        <li>提前体验新版本功能</li>
-                        <li>与团队成员直接交流</li>
+                        <li>熟悉Minecraft基岩版服务器运行机制</li>
+                        <li>具备编程能力（JavaScript、Python、Java等）</li>
+                        <li>有服务器管理或插件开发经验</li>
+                        <li>擅长文档编写或社区运营</li>
+                        <li>对开源项目有热情和责任心</li>
                     </ul>
-                    <a href="community-update.html" class="news-read-more">了解更多 →</a>
-                </div>
-            </div>
-
-            <!-- 最新新闻 
-            <div class="news-item">
-                <div class="news-item-header">
-                    <h2 id="usf-0-7-17b">USF 0.7.17B 版本发布</h2>
-                    <div class="news-meta">
-                        <span class="news-date">2025-10-29</span>
-                        <span class="news-category">版本更新</span>
-                    </div>
-                </div>
-                <div class="news-item-content">
-                    <p>我们很高兴地宣布USF 0.7.17B版本正式发布！</p>
-                    <h3>更新内容：</h3>
-                    <ul>
-                        <li>适配了Minecraft 1.21.120版本</li>
-                        <li>修复了部分已知的兼容性问题</li>
-                        <li>优化了服务器性能</li>
-                    </ul>
-                    <div class="news-download">
-                        <a href="https://team.backup.usframeteam.top//download/files/main/USF0.7.17B.zip" class="download-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="7 10 12 15 17 10"></polyline>
-                                <line x1="12" y1="15" x2="12" y2="3"></line>
-                            </svg>
-                            下载USF 0.7.17B
-                        </a>
-                    </div>
-                </div>
-            </div>-->
-
-            <div class="news-item">
-                <div class="news-item-header">
-                    <h2 id="website-launch">USFrameTeam官网上线</h2>
-                    <div class="news-meta">
-                        <span class="news-date">2025-8-17</span>
-                        <span class="news-category">团队公告</span>
-                    </div>
-                </div>
-                <div class="news-item-content">
-                    <p>经过团队成员的努力，USFrameTeam官方网站正式上线！网站提供以下功能：</p>
-                    <ul>
-                        <li>一站式导航，轻松访问所有USF相关资源</li>
-                        <li>USF动态快速浏览</li>
-                        <li>详细的产品介绍和文档链接</li>
-                        <li>便捷的下载入口</li>
-                    </ul>
-                    <p>我们将持续更新和完善网站内容，为用户提供更好的体验。</p>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-item-header">
-                    <h2>NeoUSF(USFV3)开发进展</h2>
-                    <div class="news-meta">
-                        <span class="news-date">2025-10-17</span>
-                        <span class="news-category">开发动态</span>
-                    </div>
-                </div>
-                <div class="news-item-content">
-                    <p>由凋空凌主导开发的新一代USF(NeoUSF)正在积极开发中。NeoUSF是由Java编写的集日志、安装等功能为一体的服务端，支持自动安装和自动更新的MCBE原版插件。</p>
-                    <a href="https://github.com/USFrameTeam/Unknown-Server-Framework-V3-build" class="news-read-more">关注GitHub仓库 →</a>
-                </div>
-            </div>
-
-            <!-- 分页 -->
-            <div class="pagination">
-                <span class="pagination-info">第 1 页，共 3 页</span>
-                <div class="pagination-controls">
-                    <button class="pagination-btn" disabled>上一页</button>
-                    <button class="pagination-btn active">1</button>
-                    <button class="pagination-btn">2</button>
-                    <button class="pagination-btn">3</button>
-                    <button class="pagination-btn">下一页</button>
+                    
+                    <h3>参与方式</h3>
+                    <p>无论你是想参与USFv2的维护，还是想加入USFv3的建设，都有多种方式可以参与：</p>
+                    
+                    <h4>参与USF V2维护</h4>
+                    <p>如果你想直接参与USF V2的维护工作，可以访问我们的GitHub仓库：</p>
+                    <a href="https://github.com/USFrameTeam/Unknown-Server-Framework" class="download-btn" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        访问USF V2 GitHub仓库
+                    </a>
+                    
+                    <h4>参与USF V3建设</h4>
+                    <p>如果你有更远的目标，想参与全新架构的USF V3重构工作，可以访问：</p>
+                    <a href="https://github.com/USFrameTeam/Unknown-Server-Framework-V3-build" class="download-btn" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        访问USF V3 GitHub仓库
+                    </a>
+                    
+                    <h4>加入交流群</h4>
+                    <p>如果你想了解更多信息，或者有任何问题，可以加入我们的QQ交流群：</p>
+                    <a href="https://qm.qq.com/q/lEtjzmR3na" class="download-btn" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        加入USF文档建设&社区更新计划群
+                    </a>
+                    
+                    <h3>我们的期望</h3>      
+                    <p>无论你是经验丰富的开发者，还是刚刚入门的爱好者，只要你对USF有热情，愿意为项目贡献自己的力量，我们都欢迎你的加入！</p>
                 </div>
             </div>
         </main>
