@@ -1,0 +1,239 @@
+/* EULA页面特定样式 */
+.eula-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+}
+
+/* 协议标题样式 */
+.eula-main-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-2xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--border-color);
+    text-align: center;
+}
+
+/* 协议章节样式 */
+.eula-section {
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-2xl);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.eula-section:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* 主章节标题样式 */
+.eula-section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.eula-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* 子章节标题样式 */
+.eula-subsection-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: var(--spacing-xl) 0 var(--spacing-lg);
+}
+
+/* 三级子章节标题样式 */
+.eula-subsection-title.level-3 {
+    font-size: 1.2rem;
+    margin-top: var(--spacing-lg);
+    color: var(--text-secondary);
+}
+
+/* 协议段落样式 */
+.eula-paragraph {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* 引用文本样式 */
+.eula-note {
+    background-color: var(--bg-tertiary);
+    border-left: 4px solid var(--primary-color);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    border-radius: var(--border-radius-sm);
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* 列表样式 */
+.eula-list {
+    margin: var(--spacing-lg) 0;
+    padding-left: var(--spacing-2xl);
+}
+
+.eula-list li {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+}
+
+.eula-list li::before {
+    content: '•';
+    position: absolute;
+    left: -1.2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* 分隔线样式 */
+.eula-divider {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: var(--spacing-2xl) 0;
+}
+
+/* 强调文本样式 */
+.eula-emphasis {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* 链接样式 */
+.eula-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+    border-bottom: 1px solid transparent;
+}
+
+.eula-link:hover {
+    color: var(--primary-dark);
+    border-bottom-color: var(--primary-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .eula-content {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+    
+    .eula-section {
+        padding: var(--spacing-xl);
+    }
+    
+    .eula-main-title {
+        font-size: 1.75rem;
+    }
+    
+    .eula-section-title {
+        font-size: 1.5rem;
+    }
+    
+    .eula-subsection-title {
+        font-size: 1.25rem;
+    }
+    
+    .eula-subsection-title.level-3 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .eula-main-title {
+        font-size: 1.5rem;
+    }
+    
+    .eula-section-title {
+        font-size: 1.35rem;
+    }
+    
+    .eula-subsection-title {
+        font-size: 1.15rem;
+    }
+    
+    .eula-paragraph {
+        font-size: 0.95rem;
+    }
+}
+
+/* 为当前eula.html结构适配的样式 */
+.plugin-intro {
+    background: var(--card-bg);
+    padding: var(--spacing-2xl);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    max-width: 1000px;
+    margin: var(--spacing-2xl) auto;
+}
+
+.products-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: var(--spacing-xl) 0;
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.products-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.intro-text {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* 特殊适配当前HTML结构中的空标题 */
+.products-title:empty {
+    display: none;
+}
+
+/* 为链接添加样式 */
+.intro-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+    border-bottom: 1px solid transparent;
+}
+
+.intro-text a:hover {
+    color: var(--primary-dark);
+    border-bottom-color: var(--primary-color);
+}
