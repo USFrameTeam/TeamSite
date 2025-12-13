@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="color-scheme" content="light dark">
+    <title>页面未找到 - USFrameTeam</title>
+    <link rel="stylesheet" href="{{ static('modern_github_style.css') }}">
+    <style>
+        /* 404页面专用样式 - 完全遵循modern_github_style.css规范 */
+        .error-section {
+            min-height: calc(100vh - var(--header-height) - 60px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-4xl) var(--spacing-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+            max-width: 1200px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .error-left {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+        }
+
+        .error-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: var(--spacing-lg);
+        }
+
+        .error-code {
+            font-size: 14rem; /* 放大字体 */
+            font-weight: 800;
+            color: #6c757d; /* 改为灰色 */
+            line-height: 0.8;
+            letter-spacing: -0.05em;
+            text-align: left; /* 靠左对齐 */
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影增强可读性 */
+        }
+
+        .error-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .error-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-xl);
+            max-width: 400px;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        /* 使用modern_github_style.css中的按钮样式 */
+        .error-btn {
+            padding: var(--spacing-md) var(--spacing-xl);
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius-md);
+            font-weight: 500;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        .error-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .error-btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .error-btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* 背景装饰 */
+        .error-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+            opacity: 0.05;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        /* 动画效果 */
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+            }
+            50% { 
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+
+        .error-code {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .error-code {
+            animation: float 4s ease-in-out infinite, slideInLeft 0.8s ease-out forwards;
+        }
+
+        .error-title {
+            animation: slideInRight 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .error-description {
+            animation: slideInRight 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        .error-actions {
+            animation: slideInRight 0.8s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .error-container {
+                gap: var(--spacing-2xl);
+            }
+            
+            .error-code {
+                font-size: 12rem; /* 相应放大 */
+            }
+            
+            .error-title {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .error-section {
+                padding: var(--spacing-3xl) var(--spacing-lg);
+                min-height: calc(100vh - var(--header-height) - 40px);
+                align-items: flex-end; /* 移动端内容靠下 */
+            }
+            
+            .error-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-2xl);
+                text-align: center;
+            }
+            
+            .error-left {
+                justify-content: center;
+                order: 1; /* 移动端404数字在下方 */
+            }
+            
+            .error-right {
+                order: 2; /* 移动端文字内容在上方 */
+                align-items: center;
+            }
+            
+            .error-code {
+                font-size: 10rem; /* 相应放大 */
+                text-align: center; /* 移动端保持居中 */
+            }
+            
+            .error-title {
+                font-size: 2rem;
+            }
+            
+            .error-description {
+                font-size: 1rem;
+                max-width: none;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            
+            .error-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-section {
+                padding: var(--spacing-2xl) var(--spacing-md);
+                min-height: calc(100vh - var(--header-height) - 20px);
+            }
+            
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 1.75rem;
+            }
+            
+            .error-description {
+                font-size: 0.95rem;
+            }
+            
+            .error-actions {
+                gap: var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="team-info">
+            <button class="mobile-menu-toggle" aria-label="打开菜单">☰</button>
+            
+            <div class="logo-and-name">
+                <img src="{{ static('pictures/USFLogo.png') }}" alt="USF Logo" class="team-logo" />
+                <a href="{{ make_url('/') }}" class="team-name">USFrameTeam</a>
+            </div>
+            
+            <div class="header-actions desktop-only">
+                <a href="https://github.com/USFrameTeam" class="github-link" target="_blank" aria-label="访问USFrameTeam的GitHub仓库">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+                <button class="theme-toggle" aria-label="切换深色模式">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="top-nav">
+        <div class="nav-links">
+            <a href="{{ make_url('/') }}" class="nav-link">首页</a>
+            <div class="products-dropdown">
+                <a class="products-link">产品</a>
+                <div class="dropdown-content">
+                    <a href="{{ make_url('usfv1.html') }}" class="dropdown-item">USFv1</a>
+                    <a href="{{ make_url('usfv2.html') }}" class="dropdown-item">USFv2</a>
+                </div>
+            </div>
+            <a href="https://usfdoc.pages.dev/" class="nav-link">文档</a>
+            <a href="https://d.usframeteam.top/" class="nav-link">下载</a>
+            <a href="{{ make_url('news/index.html') }}" class="nav-link">新闻</a>
+            <a href="{{ make_url('/about') }}" class="nav-link">关于我们</a>
+            <a href="{{ make_url('/eula') }}" class="nav-link">用户协议</a>
+        </div>
+    </nav>
+
+    <main class="content">
+        <section class="error-section section-transition">
+            <div class="error-container">
+                <div class="error-left">
+                    <div class="error-code">404</div>
+                </div>
+                <div class="error-right">
+                    <h1 class="error-title">页面未找到</h1>
+                    <p class="error-description">
+                        抱歉，您访问的页面不存在或已被移动。<br>
+                        请检查URL是否正确，或返回首页继续浏览。
+                    </p>
+                    <div class="error-actions">
+                        <a href="{{ make_url('/') }}" class="error-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                            返回首页
+                        </a>
+                        <a href="javascript:history.back()" class="error-btn error-btn-outline">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m15 18-6-6 6-6"></path>
+                            </svg>
+                            返回上一页
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 移动版折叠菜单 -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="关闭菜单">&times;</button>
+        <nav class="mobile-top-nav">
+            <div class="mobile-nav-links">
+                <a href="{{ make_url('index.html') }}" class="mobile-nav-link">首页</a>
+                <a href="{{ make_url('usfv1.html') }}" class="mobile-nav-link">USFv1</a>
+                <a href="{{ make_url('usfv2.html') }}" class="mobile-nav-link">USFv2</a>
+                <a href="https://usfdoc.pages.dev/" class="mobile-nav-link">文档</a>
+                <a href="https://d.usframeteam.top/" class="mobile-nav-link">下载</a>
+                <a href="{{ make_url('news/index.html') }}" class="mobile-nav-link">新闻</a>
+                <a href="{{ make_url('about.html') }}" class="mobile-nav-link">关于我们</a>
+                <a href="{{ make_url('eula.html') }}" class="mobile-nav-link">用户协议</a>
+            </div>
+        </nav>
+        <div class="mobile-actions">
+            <a href="https://github.com/USFrameTeam" class="mobile-action-link" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                GitHub
+            </a>
+            <button class="mobile-theme-toggle" aria-label="切换深色模式">
+                🌓 切换主题
+            </button>
+        </div>
+    </div>
+
+    <script src="{{ static('modern_main.js') }}"></script>
+    <script>
+        // 添加滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const errorSection = document.querySelector('.error-section');
+            if (errorSection) {
+                errorSection.classList.add('visible');
+            }
+        });
+    </script>
+</body>
+</html>
