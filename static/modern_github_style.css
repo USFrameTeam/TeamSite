@@ -737,6 +737,170 @@ body {
     border-color: var(--primary-color);
 }
 
+/* 用户信息样式 */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--color-border-default);
+}
+
+.user-name {
+    font-weight: 600;
+    color: var(--color-fg-default);
+}
+
+.logout-btn {
+    background: var(--danger-color, #dc3545);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: var(--transition);
+}
+
+.logout-btn:hover {
+    background: var(--danger-dark, #c82333);
+    transform: translateY(-1px);
+}
+
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: var(--github-black, #24292e);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.login-btn:hover {
+    background: var(--github-black-dark, #1b1f23);
+    transform: translateY(-1px);
+}
+
+/* 用户权限相关样式 */
+.user-badge {
+    background: var(--color-accent-emphasis);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 4px;
+    animation: pulse 2s infinite;
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-menu-toggle {
+    background: none;
+    border: none;
+    color: var(--color-fg-muted);
+    cursor: pointer;
+    padding: 4px;
+    font-size: 10px;
+}
+
+.user-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--color-canvas-default);
+    border: 1px solid var(--color-border-default);
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+}
+
+.user-dropdown:hover .user-menu {
+    display: block;
+}
+
+.user-menu-header {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border-muted);
+}
+
+.user-menu-name {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.user-menu-badge {
+    font-size: 10px;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-right: 4px;
+}
+
+.team-badge {
+    background: var(--color-success-emphasis);
+    color: white;
+}
+
+.special-badge {
+    background: var(--color-attention-emphasis);
+    color: white;
+}
+
+.user-menu-actions {
+    padding: 8px;
+}
+
+.menu-action {
+    display: block;
+    padding: 6px 8px;
+    text-decoration: none;
+    color: var(--color-fg-default);
+    border-radius: 4px;
+    font-size: 12px;
+    transition: background 0.2s;
+}
+
+.menu-action:hover {
+    background: var(--color-neutral-muted);
+}
+
+.logout-action {
+    color: var(--color-danger-fg);
+    border-top: 1px solid var(--color-border-muted);
+    margin-top: 4px;
+    padding-top: 8px;
+}
+
+.permission-status {
+    display: flex;
+    gap: 4px;
+    margin-left: 8px;
+}
+
+.permission-badge {
+    background: var(--color-done-emphasis);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
 /* 动画效果 */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-5px); }
@@ -911,4 +1075,3 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-

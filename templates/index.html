@@ -25,6 +25,62 @@
                     </svg>
                 </a>
                 <button class="theme-toggle" aria-label="切换深色模式">🌓</button>
+                <!-- 在头部导航区域添加登录/用户信息 -->
+                <div class="header-actions">
+                    {% if current_user %}
+                    <div class="user-info">
+                        <img src="{{ current_user.avatar_url }}" alt="{{ current_user.name }}" class="user-avatar">
+                        <span class="user-name">{{ current_user.name or current_user.login or 'GitHub用户' }}</span>
+                        
+                        <!-- 权限指示器 - 显示更详细的权限信息 -->
+                        {% if current_user.is_team_member or current_user.is_special_user %}
+                        <span class="user-badge">管理员</span>
+                        {% endif %}
+                        
+                        <!-- 权限状态显示 -->
+                        <div class="permission-status">
+                            {% if has_permission('ManageDownloadSite') %}
+                            <span class="permission-badge">下载管理</span>
+                            {% endif %}
+                            {% if has_permission('ManageArticle') %}
+                            <span class="permission-badge">文章管理</span>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="user-dropdown">
+                            <button class="user-menu-toggle">▼</button>
+                            <div class="user-menu">
+                                <div class="user-menu-header">
+                                    <span class="user-menu-name">{{ current_user.name or current_user.login }}</span>
+                                    {% if current_user.is_team_member %}
+                                    <span class="user-menu-badge team-badge">团队成员</span>
+                                    {% endif %}
+                                    {% if current_user.is_special_user %}
+                                    <span class="user-menu-badge special-badge">社区贡献者</span>
+                                    {% endif %}
+                                </div>
+                                <div class="user-menu-actions">
+                                    {% if has_permission('ManageDownloadSite') %}
+                                    <a href="/admin/download" class="menu-action">管理下载</a>
+                                    {% endif %}
+                                    {% if has_permission('ManageArticle') %}
+                                    <a href="/admin/article" class="menu-action">管理文章</a>
+                                    {% endif %}
+                                    <a href="/feedback" class="menu-action">提交反馈</a>
+                                    <a href="/logout" class="menu-action logout-action">退出登录</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <a href="/login" class="github-btn login-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                        使用 GitHub 登录
+                    </a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </header>
