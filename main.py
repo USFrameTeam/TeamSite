@@ -332,11 +332,60 @@ def feedback():
     return render_template('feedback.html')
 
 # 更新上下文处理器，添加权限检查功能
+@app.route('/upload')
+@permission_required('ManageDownloadSite')
+def upload_page():
+    """文件上传页面"""
+    return render_template('upload.html')
+
+@app.route('/api/upload', methods=['POST'])
+@permission_required('ManageDownloadSite')
+def api_upload():
+    """文件上传API"""
+    try:
+        if 'file' not in request.files:
+            return jsonify({'error': '没有选择文件'}), 400
+        
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({'error': '没有选择文件'}), 400
+        
+        # 检查文件扩展名
+        allowed_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.pdf', '.zip', 
+                             '.doc', '.docx', '.txt', '.md', '.mp3', '.mp4'}
+        file_ext = os.path.splitext(file.filename)[1].lower()
+        if file_ext not in allowed_extensions:
+            return jsonify({'error': '不支持的文件类型'}), 400
+        
+        # 检查文件大小（100MB限制）
+        if len(file.read()) > 100 * 1024 * 1024:
+            return jsonify({'error': '文件大小不能超过100MB'}), 400
+        file.seek(0)  # 重置文件指针
+        
+        # 创建上传目录
+        upload_dir = 'templates/download/files'
+        os.makedirs(upload_dir, exist_ok=True)
+        
+        # 保存文件
+        filename = secure_filename(file.filename)
+        file_path = os.path.join(upload_dir, filename)
+        file.save(file_path)
+        
+        return jsonify({
+            'success': True,
+            'filename': filename,
+            'size': os.path.getsize(file_path)
+        })
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# 添加上传页面到导航
 @app.context_processor
 def inject_template_variables():
     def make_url(path):
         """为模板提供URL生成函数"""
-        if path.startswith('http://') or path.start_from('/'):
+        if path.startswith('http://') or path.startswith('/'):
             return path
         else:
             # 处理相对路径

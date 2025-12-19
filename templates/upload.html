@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件上传 - USFrameTeam</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='modern_github_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='uploadfiles.css') }}">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="team-info">
+            <div class="logo-and-name">
+                <a href="{{ url_for('index') }}" class="team-name">USFrameTeam</a>
+            </div>
+            <div class="header-actions">
+                {% if current_user %}
+                    <div class="user-info">
+                        <img src="{{ current_user.avatar_url }}" alt="用户头像" class="user-avatar" width="32" height="32">
+                        <span class="user-name">{{ current_user.name }}</span>
+                        {% if current_user.is_team_member %}
+                            <span class="team-badge">团队成员</span>
+                        {% elif current_user.is_special_user %}
+                            <span class="special-badge">特殊用户</span>
+                        {% endif %}
+                    </div>
+                    <a href="{{ url_for('logout') }}" class="github-link">退出</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="github-link">登录</a>
+                {% endif %}
+                <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}" class="nav-link">首页</a>
+            <a href="{{ url_for('news_route') }}" class="nav-link">新闻</a>
+            <a href="{{ url_for('download_route') }}" class="nav-link">下载</a>
+            <a href="{{ url_for('upload_page') }}" class="nav-link active">上传</a>
+            <a href="{{ url_for('about') }}" class="nav-link">关于</a>
+        </div>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <div class="upload-container">
+            <!-- 权限提示 -->
+            {% if current_user and has_permission('ManageDownloadSite') %}
+                <div class="permission-hint">
+                    <div class="permission-hint-title">📁 文件上传权限</div>
+                    <div class="permission-hint-text">
+                        您具有文件上传权限，可以上传文件到下载页面。支持的文件类型：图片、文档、压缩包等。
+                    </div>
+                </div>
+            {% else %}
+                <div class="permission-hint">
+                    <div class="permission-hint-title">🔒 权限不足</div>
+                    <div class="permission-hint-text">
+                        您需要具有文件上传权限才能使用此功能。请联系团队成员获取权限。
+                    </div>
+                </div>
+            {% endif %}
+
+            <!-- 上传区域 -->
+            {% if current_user and has_permission('ManageDownloadSite') %}
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <div class="upload-text">拖放文件到此处或点击选择文件</div>
+                    <div class="upload-hint">支持单个或多个文件上传，最大文件大小：100MB</div>
+                    <input type="file" id="fileInput" multiple style="display: none;">
+                    <button class="upload-button" onclick="document.getElementById('fileInput').click()">
+                        选择文件
+                    </button>
+                </div>
+
+                <!-- 状态消息 -->
+                <div id="statusMessage" style="display: none;"></div>
+
+                <!-- 文件列表 -->
+                <div class="file-list">
+                    <div class="file-list-header">
+                        <div class="file-list-title">待上传文件</div>
+                    </div>
+                    <div id="fileListContainer">
+                        <div class="empty-state" id="emptyState">
+                            <div class="empty-state-icon">📄</div>
+                            <div>暂无待上传文件</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 上传按钮 -->
+                <div style="text-align: center; margin-top: var(--spacing-xl);">
+                    <button class="upload-button" id="uploadButton" disabled onclick="uploadFiles()">
+                        开始上传
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+    </main>
+
+    <script>
+        // 主题切换
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // 初始化主题
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        });
+
+        // 文件上传相关功能
+        let selectedFiles = [];
+
+        // 拖放功能
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+
+        uploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', function() {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        // 文件选择
+        fileInput.addEventListener('change', function() {
+            handleFiles(this.files);
+        });
+
+        // 处理文件
+        function handleFiles(files) {
+            for (let file of files) {
+                // 检查文件大小（100MB限制）
+                if (file.size > 100 * 1024 * 1024) {
+                    showStatus('文件大小不能超过100MB: ' + file.name, 'error');
+                    continue;
+                }
+
+                // 检查是否已存在
+                if (selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
+                    showStatus('文件已存在: ' + file.name, 'info');
+                    continue;
+                }
+
+                selectedFiles.push(file);
+            }
+            updateFileList();
+        }
+
+        // 更新文件列表
+        function updateFileList() {
+            const container = document.getElementById('fileListContainer');
+            const emptyState = document.getElementById('emptyState');
+            const uploadButton = document.getElementById('uploadButton');
+
+            if (selectedFiles.length === 0) {
+                emptyState.style.display = 'block';
+                container.innerHTML = '';
+                uploadButton.disabled = true;
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            
+            let html = '';
+            selectedFiles.forEach((file, index) => {
+                const fileType = getFileType(file.name);
+                const fileSize = formatFileSize(file.size);
+                
+                html += `
+                    <div class="file-item">
+                        <div class="file-type-icon ${fileType}">${getFileExtension(file.name)}</div>
+                        <div class="file-info">
+                            <div class="file-name">${file.name}</div>
+                            <div class="file-size">${fileSize}</div>
+                        </div>
+                        <div class="file-actions">
+                            <button class="file-action delete" onclick="removeFile(${index})">删除</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            uploadButton.disabled = false;
+        }
+
+        // 删除文件
+        function removeFile(index) {
+            selectedFiles.splice(index, 1);
+            updateFileList();
+        }
+
+        // 获取文件类型
+        function getFileType(filename) {
+            const ext = filename.split('.').pop().toLowerCase();
+            const imageTypes = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+            const documentTypes = ['pdf', 'doc', 'docx', 'txt', 'md'];
+            const archiveTypes = ['zip', 'rar', '7z', 'tar', 'gz'];
+            const audioTypes = ['mp3', 'wav', 'ogg', 'flac'];
+            const videoTypes = ['mp4', 'avi', 'mkv', 'mov'];
+
+            if (imageTypes.includes(ext)) return 'image';
+            if (documentTypes.includes(ext)) return 'document';
+            if (archiveTypes.includes(ext)) return 'archive';
+            if (audioTypes.includes(ext)) return 'audio';
+            if (videoTypes.includes(ext)) return 'video';
+            return 'document';
+        }
+
+        // 获取文件扩展名
+        function getFileExtension(filename) {
+            return filename.split('.').pop().toUpperCase();
+        }
+
+        // 格式化文件大小
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // 显示状态消息
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('statusMessage');
+            statusDiv.textContent = message;
+            statusDiv.className = `status-message status-${type}`;
+            statusDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // 上传文件
+        async function uploadFiles() {
+            if (selectedFiles.length === 0) return;
+
+            const uploadButton = document.getElementById('uploadButton');
+            uploadButton.disabled = true;
+            uploadButton.textContent = '上传中...';
+
+            for (let i = 0; i < selectedFiles.length; i++) {
+                const file = selectedFiles[i];
+                const formData = new FormData();
+                formData.append('file', file);
+
+                try {
+                    const response = await fetch('/api/upload', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        showStatus(`文件上传成功: ${file.name}`, 'success');
+                    } else {
+                        throw new Error('上传失败');
+                    }
+                } catch (error) {
+                    showStatus(`文件上传失败: ${file.name}`, 'error');
+                }
+            }
+
+            // 清空文件列表
+            selectedFiles = [];
+            updateFileList();
+            uploadButton.textContent = '开始上传';
+        }
+    </script>
+</body>
+</html>
