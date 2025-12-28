@@ -39,6 +39,7 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: "LXGW WenKai Screen", sans-serif;
 }
 
 /* 头部样式 */
