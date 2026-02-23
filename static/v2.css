@@ -1,0 +1,145 @@
+/* USFv2 专用样式文件 */
+
+/* 基础样式重置和变量定义 */
+.usfv2-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+
+/* 插件介绍区域样式 */
+.plugin-intro {
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.plugin-intro:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.plugin-intro h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.intro-text:last-child {
+    margin-bottom: 0;
+}
+
+.plugin-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    margin: var(--spacing-lg) 0;
+    box-shadow: var(--shadow-sm);
+}
+
+/* 视频容器样式 */
+.plugin-intro iframe {
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    margin: var(--spacing-lg) 0;
+    border: none;
+}
+
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    color: white;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .usfv2-container {
+        padding: var(--spacing-md);
+    }
+    
+    .team-title {
+        font-size: 2rem;
+    }
+    
+    .team-description {
+        font-size: 1.1rem;
+    }
+    
+    .plugin-intro {
+        padding: var(--spacing-lg);
+    }
+    
+    .plugin-intro h2 {
+        font-size: 1.5rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .plugin-intro iframe {
+        width: 100% !important;
+        height: 200px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-title {
+        font-size: 1.75rem;
+    }
+    
+    .team-intro {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .plugin-intro {
+        padding: var(--spacing-md);
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.plugin-intro,
+.links-section {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.plugin-intro:nth-child(2) { animation-delay: 0.1s; }
+.plugin-intro:nth-child(3) { animation-delay: 0.2s; }
+.links-section:nth-child(4) { animation-delay: 0.3s; }
+.links-section:nth-child(5) { animation-delay: 0.4s; }
