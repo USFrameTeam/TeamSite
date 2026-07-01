@@ -14,8 +14,8 @@ function renderHeader(config) {
                     '</svg>' +
                 '</button>' +
                 '<div id="dropdown-menu" class="absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 mt-2 w-48 bg-[#1a1a1c]/95 backdrop-blur-2xl border border-white/10 rounded-[1.5rem] p-2 opacity-0 invisible transform -translate-y-2 transition-all duration-300 z-50">' +
-                    '<a href="usfv1.html" target="_blank" rel="noopener" class="block px-4 py-3 text-xs text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">USFV1</a>' +
-                    '<a href="usfv2.html" target="_blank" rel="noopener" class="block px-4 py-3 text-xs text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">USFV2</a>' +
+                    '<a href="usfv1.html" class="block px-4 py-3 text-xs text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">USFV1</a>' +
+                    '<a href="usfv2.html" class="block px-4 py-3 text-xs text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">USFV2</a>' +
                     '<a href="https://github.com/USFrameTeam/Unknown-Server-Framework-V3-build" target="_blank" rel="noopener" class="block px-4 py-3 text-xs text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">NeoUSF（开发中）</a>' +
                     '<a href="https://github.com/USFrameTeam/USF-Manager" target="_blank" rel="noopener" class="block px-4 py-3 text-xs text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">USFM（开发中）</a>' +
                 '</div>' +
