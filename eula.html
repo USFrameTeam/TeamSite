@@ -176,6 +176,18 @@
         </div>
     </main>
 
+<script>
+(function() {
+    var from = new URLSearchParams(window.location.search).get('from');
+    if (from === 'usfdown') {
+        document.documentElement.classList.add('iframe-mode');
+        var style = document.createElement('style');
+        style.textContent = '.iframe-mode .header,.iframe-mode .top-nav,.iframe-mode .mobile-menu,.iframe-mode .footer,.iframe-mode .eula-main-title{display:none!important}.iframe-mode .eula-content{padding:0;margin:0}.iframe-mode body{margin:0;padding:10px 12px;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#1a1a1a;line-height:1.6;font-size:14px}.iframe-mode .eula-section{margin:0;padding:10px 0;border-bottom:1px solid #e0e0e0;background:none;border-radius:0;border-left:none;border-right:none;border-top:none;box-shadow:none}.iframe-mode .eula-section:last-child{border-bottom:none}.iframe-mode .eula-section-title{font-size:1.15em;margin:0 0 6px;color:#1a1a1a;font-weight:600}.iframe-mode .eula-subsection-title{font-size:1.05em;margin:6px 0 4px;color:#333;font-weight:600}.iframe-mode .eula-paragraph,.iframe-mode .eula-note{margin:3px 0;font-size:14px;color:#333}.iframe-mode .eula-note{background:none;border-left:3px solid #0969da;padding:2px 8px;border-radius:0;font-style:italic;color:#555}.iframe-mode .eula-list{margin:3px 0;padding-left:20px;font-size:14px}.iframe-mode .eula-list li{margin:2px 0;color:#333}.iframe-mode .eula-link{color:#0969da}';
+        document.head.appendChild(style);
+        document.title = '用户协议 - USFrameTeam';
+    }
+})();
+</script>
 <script src="static/modern_main.js"></script>
 </body>
 <footer class="footer">
