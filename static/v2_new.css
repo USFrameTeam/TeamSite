@@ -1,0 +1,62 @@
+/* 临时使用，后续转框架的时候不会使用CDN了 */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;
+    background-color: #0b0b0c;
+}
+
+.text-glow {
+    text-shadow: 0 2px 12px rgba(0,0,0,0.7), 0 4px 30px rgba(0,0,0,0.5);
+}
+
+.hero-bg-fixed {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+@keyframes customFadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.99);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes customFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.animate-hero-card {
+    animation: customFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+    animation: customFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.entrance-delay-1 { animation-delay: 0.08s; }
+.entrance-delay-2 { animation-delay: 0.16s; }
+.entrance-delay-3 { animation-delay: 0.24s; }
+.entrance-delay-4 { animation-delay: 0.32s; }
+.entrance-delay-5 { animation-delay: 0.4s; }
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px) scale(0.99);
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}

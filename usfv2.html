@@ -2,143 +2,329 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="color-scheme" content="light dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USF V2-USFrameTeam 官方网站</title>
-    <link rel="stylesheet" href="static/modern_github_style.css">
-    <link rel="stylesheet" href="static/download-style.css">
-    <link rel="stylesheet" href="static/v2.css">
+    <!-- Y: 临时使用，后续转框架的时候不会使用CDN了 2026-07-01 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="static/v2_new.css">
 </head>
-<body>
-    <header class="header">
-        <div class="team-info">
-            <button class="mobile-menu-toggle" aria-label="打开菜单">☰</button>
+<body class="text-neutral-100 antialiased min-h-screen flex flex-col p-4 md:p-6 max-w-7xl mx-auto w-full">
+
+    <header class="w-full z-50 flex justify-between items-center px-4 md:px-6 py-4 opacity-0 animate-fade-in">
+        <div class="flex items-center space-x-6 md:space-x-10">
+            <a href="https://www.usframeteam.top/" class="flex items-center space-x-3 cursor-pointer">
+                <img src="static/pictures/USFLogo.webp" alt="Logo" class="w-8 h-8 object-contain">
+                <span class="text-lg md:text-xl font-semibold tracking-tighter text-white">USFrameTeam</span>
+            </a>
             
-            <div class="logo-and-name">
-                <img src="static/pictures/USFLogo.png" alt="USF Logo" class="team-logo" />
-                <a href="index.html" class="team-name">USFrameTeam</a>
-            </div>
-            
-            <div class="header-actions desktop-only">
-                <a href="https://github.com/USFrameTeam" class="github-link" target="_blank" aria-label="访问USFrameTeam的GitHub仓库">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            <div class="relative group">
+                <button id="dropdown-btn" class="flex items-center space-x-1 text-sm tracking-widest text-neutral-400 hover:text-white transition-colors duration-200" aria-label="更多项目">
+                    <span class="hidden md:inline">更多项目</span>
+                    <svg id="dropdown-arrow" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
-                </a>
-                <button class="theme-toggle" aria-label="切换深色模式">🌓</button>
+                </button>
+                <div id="dropdown-menu" class="absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 mt-2 w-48 bg-[#1a1a1c]/95 backdrop-blur-2xl border border-white/10 rounded-[1.5rem] p-2 opacity-0 invisible transform -translate-y-2 transition-all duration-300 z-50">
+                    <a href="https://www.usframeteam.top/usfv1.html" target="_blank" rel="noopener" class="block px-4 py-3 text-xs text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">USFV1</a>
+                    <a href="https://www.usframeteam.top/usfv2.html" target="_blank" rel="noopener" class="block px-4 py-3 text-xs text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">USFV2</a>
+                    <a href="https://github.com/USFrameTeam/Unknown-Server-Framework-V3-build" target="_blank" rel="noopener" class="block px-4 py-3 text-xs text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">NeoUSF（开发中）</a>
+                    <a href="https://github.com/USFrameTeam/USF-Manager" target="_blank" rel="noopener" class="block px-4 py-3 text-xs text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors">USFM（开发中）</a>
+                </div>
             </div>
         </div>
+
+        <nav class="flex items-center space-x-3">
+            <a href="v2_old.html" class="inline-flex items-center border border-white/20 px-4 py-1.5 rounded-[2.5rem] text-xs hover:bg-white hover:text-black transition-all duration-300 font-medium">
+                <span>返回旧版</span>
+            </a>
+            <a href="https://github.com/USFrameTeam/Unknown-Server-Framework" target="_blank" rel="noopener" class="inline-flex items-center border border-white/20 px-4 py-1.5 rounded-[2.5rem] text-xs hover:bg-white hover:text-black transition-all duration-300 font-medium">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                </svg>
+                <span>GitHub</span>
+            </a>
+        </nav>
     </header>
 
-    <nav class="top-nav">
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">首页</a>
-            <div class="products-dropdown">
-                <a class="products-link">产品</a>
-                <div class="dropdown-content">
-                    <a href="usfv1.html" class="dropdown-item">USFv1</a>
-                    <a href="usfv2.html" class="dropdown-item">USFv2</a>
+    <main class="flex-grow flex flex-col space-y-16 md:space-y-28">
+
+        <section class="relative w-full h-[calc(100vh-6.5rem)] md:h-[calc(100vh-7rem)] rounded-[2.5rem] overflow-hidden bg-[#121214] flex flex-col justify-end md:justify-center items-center md:items-start px-6 pb-12 pt-24 md:px-20 md:py-24 opacity-0 animate-hero-card">
+            
+            <div class="absolute inset-0 z-0 hero-bg-fixed" 
+                 style="background-image: url('static/pictures/hero-bg.webp');">
+            </div>
+
+            <div class="absolute inset-0 z-10 bg-gradient-to-t from-[#0b0b0c]/95 via-[#0b0b0c]/50 to-black/20 md:bg-gradient-to-r md:from-[#0b0b0c]/90 md:via-[#0b0b0c]/50 md:to-transparent"></div>
+
+            <div class="relative z-20 w-full flex flex-col items-center text-center md:items-start md:text-left space-y-4 md:space-y-6">
+                <p id="label-text" class="w-fit text-[10px] md:text-xs tracking-[0.3em] text-neutral-200 uppercase font-semibold opacity-0 animate-hero-card entrance-delay-1 text-glow whitespace-nowrap select-none">
+                    Unknown Server Framework
+                </p>
+                
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-white leading-[1.15] text-glow opacity-0 animate-hero-card entrance-delay-2">
+                    无名氏服务器<br class="hidden md:block">管理框架 <span class="font-light text-neutral-300">V2</span>
+                </h1>
+                
+                <p class="text-base md:text-lg text-neutral-200 font-light leading-relaxed max-w-md md:max-w-lg text-glow opacity-0 animate-hero-card entrance-delay-3">
+                    专为 Minecraft 基岩版打造。快速部署商店、货币与积分系统，让服务端管理化繁为简。
+                </p>
+
+                <div class="flex flex-col items-center md:items-start pt-4 space-y-5 opacity-0 animate-hero-card entrance-delay-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-8 w-full">
+                        <a href="https://qm.qq.com/q/ws3nGCK9c6" target="_blank" rel="noopener" class="group flex items-center space-x-2 text-xs md:text-sm tracking-wider text-white font-semibold">
+                            <span class="text-glow border-b border-white/30 pb-0.5">官方交流群</span>
+                        </a>
+                        <span class="text-neutral-400/40 text-base font-light">/</span>
+                        <a href="https://d.usframeteam.top/" target="_blank" rel="noopener" class="text-xs md:text-sm tracking-wider text-neutral-300 hover:text-white text-glow font-medium border-b border-transparent pb-0.5">
+                            下载 USF
+                        </a>
+                    </div>
+
+                    <a id="start-btn" href="https://usfdoc.pages.dev/" target="_blank" rel="noopener" class="flex items-center justify-between px-5 py-2 md:py-2.5 border-2 border-white bg-white/10 backdrop-blur-md text-white text-sm md:text-base font-bold rounded-[2.5rem] shadow-lg hover:bg-white/20 transition-all duration-300">
+                        <span>现在开始</span>
+                        <span class="text-base md:text-lg">→</span>
+                    </a>
                 </div>
             </div>
-            <a href="https://usfdoc.pages.dev/" class="nav-link">文档</a>
-            <a href="https://d.usframeteam.top/" class="nav-link">下载</a>
-            <a href="news/index.html" class="nav-link">新闻</a>
-            <a href="about.html" class="nav-link">关于我们</a>
-            <a href="eula.html" class="nav-link">用户协议</a>
-        </div>
-    </nav>
-    
-    <!-- 移动版折叠菜单 -->
-    <div class="mobile-menu">
-        <button class="mobile-menu-close" aria-label="关闭菜单">&times;</button>
-        <nav class="mobile-top-nav">
-            <div class="mobile-nav-links">
-                <a href="index.html" class="mobile-nav-link">首页</a>
-                <a href="usfv1.html" class="mobile-nav-link">USFv1</a>
-                <a href="usfv2.html" class="mobile-nav-link">USFv2</a>
-                <a href="https://usfdoc.pages.dev/" class="mobile-nav-link">文档</a>
-                <a href="https://d.usframeteam.top/" class="mobile-nav-link">下载</a>
-                <a href="news/index.html" class="mobile-nav-link">新闻</a>
-                <a href="about.html" class="mobile-nav-link">关于我们</a>
-                <a href="eula.html" class="mobile-nav-link">用户协议</a>
+        </section>
+
+
+        <section class="reveal w-full flex flex-col space-y-10 px-4 md:px-6">
+            <div class="text-center md:text-left max-w-2xl">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
+                    初次结识 USF？看看这些！
+                </h2>
+                <p class="text-sm md:text-base text-neutral-400 mt-2 font-light">
+                    几乎全能的基岩版的基础插件。
+                </p>
             </div>
-        </nav>
-        <div class="mobile-actions">
-            <a href="https://github.com/USFrameTeam" class="mobile-action-link" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>
-                GitHub
-            </a>
-            <button class="mobile-theme-toggle" aria-label="切换深色模式">
-                🌓 切换主题
-            </button>
-        </div>
-    </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                
+                <div class="md:col-span-2 relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-8 flex flex-col justify-center min-h-[220px]">
+                    <div class="z-10">
+                        <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 tracking-tight">零前置，即装即用</h3>
+                        <p class="text-neutral-400 text-sm md:text-base leading-relaxed font-light">
+                            USF 使用原版 MCBE ScriptAPI 开发。它无需任何的前置插件加载器，只需服务端支持 MCBE ScriptAPI ，就可让你的存档或服务器拥有：传送、领地、商店、群组、日志记录等基础能力。
+                        </p>
+                    </div>
+                    <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-white/[0.02] rounded-full blur-3xl pointer-events-none"></div>
+                </div>
 
-    <main class="content">
-        <section class="team-intro">
-            <h2 class="team-title">USFV2</h2>
-            <p class="team-description">基于原版MCBE ScriptAPI的服务器管理框架(Add-on)</p>
-        </section>
-
-        <section class="plugin-intro">
-            <h2>关于USF</h2>
-            <p class="intro-text">USF是一个基于原版MCBE ScriptAPI的服务器管理框架(Add-on)</p>
-            <img src="static/pictures/USFAD.jpg" alt="USF介绍" class="plugin-image">
-            <p class="intro-text">基于原版，无需任何前置插件，小白也可快速上手</p>
-            <p class="intro-text">USF提供了丰富的功能，如传送、领地、全局商店、队伍和服务器管理等功能</p>
-            <p class="intro-text">目前USF全网下载量已超过3w，支持MC1.19-1.21，涵盖范围广，功能完善</p>
-            <p class="intro-text">--</p>
-            <p class="intro-text">视频介绍</p>
-            <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=1400647361&bvid=BV1o6421T7R9&cid=1439437569&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" width="80%" height="300" allowfullscreen="true"></iframe>
-        </section>
-       
-        <section class="plugin-intro">
-            <h2>USF安装</h2>
-            <div class="plugin-btn-group">
-              <a href="https://usfdoc.pages.dev/" class="btn">USF文档</a>
-            </div>
-            <p class="intro-text">视频教程</p>
-            <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=114008162048792&bvid=BV15dAKe6END&cid=28408483408&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" width="80%" height="300" allowfullscreen="true"></iframe>
-        </section>
-
-        <section class="links-section">
-            <h3>USF相关链接</h3>
-            <div class="button-group">
-                <a href="https://d.usframeteam.top/" class="btn">下载站</a>
-                <a href="https://usftest.usframeteam.top/" class="btn">测试版本下载站</a>
-                <a href="https://github.com/USFrameTeam/Unknown-Server-Framework" class="btn">Github</a>
+                <div class="bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-8 flex flex-col justify-center min-h-[220px]">
+                    <div class="flex flex-col">
+                        <span class="text-5xl font-semibold text-white tracking-tight">50,000+</span>
+                        <span class="text-neutral-400 text-xs mt-2 tracking-wider uppercase font-medium">全网累计下载</span>
+                    </div>
+                </div>
+                
             </div>
         </section>
 
-        <section class="links-section">
-           <h3>USF授权帖子</h3>
-           <div class="button-group">
-                <a href="https://www.minebbs.com/resources/usf-v.5475/" class="btn">MineBBS</a>
-                <a href="https://klpbbs.com/thread-131213-1-1.html" class="btn">苦力怕论坛</a>
-           </div>
+
+        <section class="reveal w-full flex flex-col space-y-10 px-4 md:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                
+                <div class="flex flex-col space-y-4">
+                    <div class="relative w-full rounded-2xl overflow-hidden bg-[#161618] border border-white/10 shadow-2xl flex flex-col">
+                        <div class="w-full h-9 bg-neutral-900/80 backdrop-blur-md flex items-center px-4 border-b border-white/[0.05] space-x-1.5">
+                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                            <div class="flex-1 text-center pr-12"><span class="text-[10px] text-neutral-500 font-medium tracking-wide">关于USF.mp4</span></div>
+                        </div>
+                        
+                        <div class="relative w-full aspect-video bg-black flex items-center justify-center">
+                            <iframe data-src="https://player.bilibili.com/player.html?isOutside=true&amp;bvid=BV1qJC9BHE7c&amp;p=1" 
+                                    scrolling="no" 
+                                    border="0" 
+                                    frameborder="no" 
+                                    framespacing="0" 
+                                    allowfullscreen="true" 
+                                    class="lazy-iframe absolute inset-0 w-full h-full">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col space-y-4">
+                    <div class="relative w-full rounded-2xl overflow-hidden bg-[#161618] border border-white/10 shadow-2xl flex flex-col">
+                        <div class="w-full h-9 bg-neutral-900/80 backdrop-blur-md flex items-center px-4 border-b border-white/[0.05] space-x-1.5">
+                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                            <div class="flex-1 text-center pr-12"><span class="text-[10px] text-neutral-500 font-medium tracking-wide">安装USF.mp4</span></div>
+                        </div>
+                        
+                        <div class="relative w-full aspect-video bg-black flex items-center justify-center">
+                            <iframe data-src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=114008162048792&amp;bvid=BV15dAKe6END&amp;cid=28408483408&amp;p=1" 
+                                    scrolling="no" 
+                                    border="0" 
+                                    frameborder="no" 
+                                    framespacing="0" 
+                                    allowfullscreen="true" 
+                                    class="lazy-iframe absolute inset-0 w-full h-full">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="reveal w-full px-4 md:px-6">
+            <div class="relative w-full rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-[#161618] to-[#0d0d0e] border border-white/[0.06] p-8 md:p-14 flex flex-col items-center text-center space-y-5">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
+                    何尝不先试试呢？
+                </h2>
+                <p class="text-sm md:text-base text-neutral-400 font-light max-w-md">
+                    查阅文档，或是立刻下载
+                </p>
+                <div class="flex flex-row items-center justify-center gap-4 pt-3">
+                    <a href="https://usfdoc.pages.dev/" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs md:text-sm font-medium rounded-full transition-all">
+                        查阅文档
+                    </a>
+                    <a href="https://d.usframeteam.top/" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 bg-white text-black text-xs md:text-sm font-bold rounded-full hover:bg-neutral-200 transition-all">
+                        立刻下载
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="reveal w-full px-4 md:px-6">
+            <div class="border-t border-white/10 pt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="flex flex-col space-y-6">
+                    <h3 class="text-xs font-semibold tracking-widest text-neutral-400 uppercase">USF 相关官方资源</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <a href="https://d.usframeteam.top/" target="_blank" rel="noopener" class="group flex items-center justify-between p-4 bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.05] rounded-xl transition-all duration-300">
+                            <span class="text-xs md:text-sm font-medium text-neutral-300">官方下载站</span>
+                            <span class="text-neutral-500">→</span>
+                        </a>
+                        <a href="https://github.com/USFrameTeam/Unknown-Server-Framework" target="_blank" rel="noopener" class="group flex items-center justify-between p-4 bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.05] rounded-xl transition-all duration-300">
+                            <span class="text-xs md:text-sm font-medium text-neutral-300">GitHub 仓库</span>
+                            <span class="text-neutral-500">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col space-y-6">
+                    <h3 class="text-xs font-semibold tracking-widest text-neutral-400 uppercase">我们在第三方的帖子</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <a href="https://www.minebbs.com/resources/usf-v.5475/" target="_blank" rel="noopener" class="group flex items-center justify-between p-4 bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.05] rounded-xl transition-all duration-300">
+                            <span class="text-xs md:text-sm font-medium text-neutral-300">MineBBS 论坛</span>
+                            <span class="text-neutral-500">→</span>
+                        </a>
+                        <a href="https://klpbbs.com/thread-131213-1-1.html" target="_blank" rel="noopener" class="group flex items-center justify-between p-4 bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.05] rounded-xl transition-all duration-300">
+                            <span class="text-xs md:text-sm font-medium text-neutral-300">苦力怕论坛</span>
+                            <span class="text-neutral-500">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>联系方式</h4>
-                <p>USF社区交流QQ群: 107403959</p>
-            </div>
-            <div class="footer-section">
-                <h4>友情链接</h4>
-                <div class="friend-links">
-                    <a href="https://www.zuyst.top/" target="_blank" class="footer-link">ZUY Studio</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p> 2023-2026 © USFrameTeam. 保留所有权利。</p>
-            </div>
+    <footer class="w-full z-20 flex flex-col md:flex-row justify-between items-start md:items-center px-4 md:px-6 py-8 mt-12 text-[11px] md:text-xs tracking-wider text-neutral-500 gap-4 border-t border-white/[0.03]">
+        <div class="text-center md:text-left w-full md:w-auto">2023-2026 © USFrameTeam. 保留所有权利。</div>
+        <div class="text-center md:text-right w-full md:w-auto flex flex-col items-center md:items-end gap-1">
+            <span class="opacity-60">Minecraft 是 Mojang Studios 的商标。</span>
+            <a href="https://www.usframeteam.top/user-agreement.html" target="_blank" rel="noopener" class="hover:text-white transition-colors underline decoration-neutral-600 hover:decoration-white">用户协议 - USFrameTeam 官方网站</a>
         </div>
     </footer>
 
-    <script src="static/modern_main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const labelText = document.getElementById('label-text');
+            const startBtn = document.getElementById('start-btn');
+            
+            function forceEqualWidth() {
+                if (labelText && startBtn) {
+                    const preciseWidth = labelText.getBoundingClientRect().width;
+                    if (preciseWidth > 0) {
+                        startBtn.style.width = `${preciseWidth}px`;
+                    }
+                }
+            }
+
+            forceEqualWidth();
+            window.addEventListener('resize', forceEqualWidth);
+            document.fonts.ready.then(forceEqualWidth);
+            setTimeout(forceEqualWidth, 400);
+
+            const dropdownBtn = document.getElementById('dropdown-btn');
+            const dropdownMenu = document.getElementById('dropdown-menu');
+            const dropdownArrow = document.getElementById('dropdown-arrow');
+
+            function toggleDropdown(show) {
+                if (show) {
+                    dropdownMenu.classList.remove('opacity-0', 'invisible', '-translate-y-2');
+                    dropdownMenu.classList.add('opacity-100', 'visible', 'translate-y-0');
+                    dropdownArrow.classList.add('rotate-180');
+                } else {
+                    dropdownMenu.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                    dropdownMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                    dropdownArrow.classList.remove('rotate-180');
+                }
+            }
+
+            dropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isVisible = dropdownMenu.classList.contains('visible');
+                toggleDropdown(!isVisible);
+            });
+
+            document.addEventListener('click', () => {
+                toggleDropdown(false);
+            });
+
+            dropdownMenu.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.12
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            const lazyIframes = document.querySelectorAll('.lazy-iframe');
+            const iframeObserverOptions = {
+                root: null,
+                rootMargin: '200px',
+                threshold: 0.01
+            };
+
+            const iframeObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const iframe = entry.target;
+                        const src = iframe.getAttribute('data-src');
+                        if (src) {
+                            iframe.setAttribute('src', src);
+                            iframe.removeAttribute('data-src');
+                        }
+                        observer.unobserve(iframe);
+                    }
+                });
+            }, iframeObserverOptions);
+
+            lazyIframes.forEach(iframe => iframeObserver.observe(iframe));
+        });
+    </script>
 </body>
 </html>
