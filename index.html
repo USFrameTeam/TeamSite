@@ -2,268 +2,163 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="color-scheme" content="light dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USFrameTeam 官方网站</title>
-    <link rel="stylesheet" href="static/modern_github_style.css">
-    <link rel="stylesheet" href="static/download-style.css">
+    <!-- Y: 临时使用，后续转框架的时候不会使用CDN了 2026-07-01 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="static/v2_new.css">
 </head>
-<body>
-    <header class="header">
-        <div class="team-info">
-            <button class="mobile-menu-toggle" aria-label="打开菜单">☰</button>
-            
-            <div class="logo-and-name">
-                <img src="static/pictures/USFLogo.png" alt="USF Logo" class="team-logo" />
-                <a href="index.html" class="team-name">USFrameTeam</a>
-            </div>
-            
-            <div class="header-actions desktop-only">
-                <a href="https://github.com/USFrameTeam" class="github-link" target="_blank" aria-label="访问USFrameTeam的GitHub仓库">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                    </svg>
-                </a>
-                <button class="theme-toggle" aria-label="切换深色模式">🌓</button>
-            </div>
-        </div>
-    </header>
+<body class="text-neutral-100 antialiased min-h-screen flex flex-col p-4 md:p-6 max-w-7xl mx-auto w-full">
 
-    <nav class="top-nav">
-        <div class="nav-links">
-            <a href="index.html" class="nav-link active">首页</a>
-            <div class="products-dropdown">
-                <a class="products-link">产品</a>
-                <div class="dropdown-content">
-                    <a href="usfv1.html" class="dropdown-item">USFv1</a>
-                    <a href="usfv2.html" class="dropdown-item">USFv2</a>
+    <main class="flex-grow flex flex-col space-y-16 md:space-y-28">
+
+        <section class="relative w-full rounded-[2.5rem] overflow-hidden bg-[#121214] flex flex-col items-center px-6 py-20 md:px-20 md:py-28 opacity-0 animate-hero-card">
+            <div class="relative z-20 w-full flex flex-col items-center text-center space-y-6">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-white leading-[1.15] text-glow">
+                    USFrameTeam
+                </h1>
+                <p class="text-base md:text-lg text-neutral-400 font-light leading-relaxed max-w-lg">
+                    Minecraft Bedrock Edition 插件开发团队，维护无名氏服务器管理框架（USF）
+                </p>
+                <div class="flex items-center gap-4 pt-2">
+                    <a href="#products" class="inline-flex items-center justify-center px-6 py-2.5 bg-white text-black text-sm font-bold rounded-full hover:bg-neutral-200 transition-all">
+                        了解产品
+                    </a>
+                    <a href="about.html" class="inline-flex items-center justify-center px-6 py-2.5 border border-white/20 bg-white/5 hover:bg-white/10 text-white text-sm font-medium rounded-full transition-all">
+                        关于我们
+                    </a>
                 </div>
-            </div>
-            <a href="https://usfdoc.pages.dev/" class="nav-link">文档</a>
-            <a href="https://d.usframeteam.top/" class="nav-link">下载</a>
-            <a href="news/index.html" class="nav-link">新闻</a>
-            <a href="about.html" class="nav-link">关于我们</a>
-            <a href="eula.html" class="nav-link">用户协议</a>
-        </div>
-    </nav>
-    
-    <!-- 移动版折叠菜单 -->
-    <div class="mobile-menu">
-        <button class="mobile-menu-close" aria-label="关闭菜单">&times;</button>
-        <nav class="mobile-top-nav">
-            <div class="mobile-nav-links">
-                <a href="index.html" class="mobile-nav-link">首页</a>
-                <a href="usfv1.html" class="mobile-nav-link">USFv1</a>
-                <a href="usfv2.html" class="mobile-nav-link">USFv2</a>
-                <a href="https://usfdoc.pages.dev/" class="mobile-nav-link">文档</a>
-                <a href="https://d.usframeteam.top/" class="mobile-nav-link">下载</a>
-                <a href="news/index.html" class="mobile-nav-link">新闻</a>
-                <a href="about.html" class="mobile-nav-link">关于我们</a>
-                <a href="eula.html" class="mobile-nav-link">用户协议</a>
-            </div>
-        </nav>
-        <div class="mobile-actions">
-            <a href="https://github.com/USFrameTeam" class="mobile-action-link" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>
-                GitHub
-            </a>
-            <button class="mobile-theme-toggle" aria-label="切换深色模式">
-                🌓 切换主题
-            </button>
-        </div>
-    </div>
-
-    <main class="content">
-        <!-- 团队介绍部分 - 占一整页 -->
-        <section class="team-intro section-transition">
-            <!-- 移除团队介绍部分的USFAD.jpg图片 -->
-            <h2 class="team-title">USFrameTeam</h2>
-            <p class="team-description">我们是Minecraft Bedrock:Edtion插件 无名氏服务器管理框架(Unkonwn-Server-Framework)(以下简称USF)的开发团队</p>
-            <div class="team-buttons">
-                <a href="#products" class="btn">了解我们的产品</a>
-                <a href="about.html" class="btn btn-outline">关于我们</a>
             </div>
         </section>
-    
-        <!-- 产品介绍部分 - 占一整页 -->
-        <section id="products" class="products-intro section-transition">
-            <div class="products-container">
-                <!-- 在USF产品介绍部分插入products-usf.jpg图片 -->
-                <div class="products-image">
-                    <img src="static/pictures/products-usf.jpg" alt="USF产品" class="actual-product-image" />
-                </div>
-                <div class="products-content">
-                    <h2 class="products-title">USF系列产品</h2>
-                    <p class="products-description">USF提供两个主要版本，满足不同服务器管理需求。USFv1支持1.20.5x及以前版本，轻量级的原版服务器插件。USFv2功能更全面，支持1.20.5x及以后版本。</p>
-                    <div class="products-buttons">
-                        <a href="usfv1.html" class="btn">了解USFv1</a>
-                        <a href="usfv2.html" class="btn">了解USFv2</a>
+
+        <section id="products" class="reveal w-full px-4 md:px-6">
+            <div class="relative w-full rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-[#161618] to-[#0d0d0e] border border-white/[0.06] p-8 md:p-14 flex flex-col md:flex-row items-center gap-10">
+                <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-4">
+                    <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white leading-tight">USF 系列产品</h2>
+                    <p class="text-sm md:text-base text-neutral-400 font-light leading-relaxed">
+                        USF 提供两个主要版本。V1 支持 1.20.5x 及以前版本，轻量级原版插件。V2 功能更全面，支持 1.20.5x 及以后版本。
+                    </p>
+                    <div class="flex items-center gap-4 pt-2">
+                        <a href="usfv1.html" class="inline-flex items-center justify-center px-5 py-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white text-sm font-medium rounded-full transition-all">USFV1</a>
+                        <a href="usfv2.html" class="inline-flex items-center justify-center px-5 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-neutral-200 transition-all">USFV2</a>
                     </div>
                 </div>
+                <div class="flex-shrink-0 w-full md:w-80 aspect-video md:aspect-square rounded-2xl overflow-hidden bg-[#1a1a1c] border border-white/[0.06]">
+                    <img src="static/pictures/products-usf.jpg" alt="USF产品" class="w-full h-full object-cover">
+                </div>
             </div>
         </section>
 
-        <section class="latest-usfver-intro section-transition">
-            <h2 class="section-title">最新版本</h2>
-            <div class="latest-usfver-content">
-                <div class="latest-usfver-container">
-                    <h3 class="usfver-title">最新USF版本</h3>
-                    <h2 class="usfver-version">USF 0.7.21F</h2>
-                    <div class="latest-download">
-                        <a href="https://d.usframeteam.top/files/main/USF0.7.21F.zip" class="download-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="7 10 12 15 17 10"></polyline>
-                                <line x1="12" y1="15" x2="12" y2="3"></line>
-                            </svg>
-                            <span class="download-text">下载最新版本</span>
-                            <span class="version-text">USF 0.7.21F</span>
+        <section class="reveal w-full px-4 md:px-6">
+            <div class="relative w-full rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-[#161618] to-[#0d0d0e] border border-white/[0.06] p-8 md:p-14">
+                <div class="flex flex-col md:flex-row gap-10">
+                    <div class="flex-1 flex flex-col space-y-4">
+                        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white leading-tight">最新版本</h2>
+                        <div class="inline-block w-fit px-3 py-1 bg-white/10 rounded-full text-xs font-medium tracking-wide">USF 0.7.21F</div>
+                        <p class="text-sm text-neutral-400 font-light">发布日期：2026-5-16 | 文件大小：213.2 KB | 支持 MC 1.21.12x 及以上</p>
+                        <a href="https://d.usframeteam.top/files/main/USF0.7.21F.zip" class="inline-flex items-center justify-center w-fit px-6 py-2.5 bg-white text-black text-sm font-bold rounded-full hover:bg-neutral-200 transition-all">
+                            下载最新版本
                         </a>
-                        <div class="download-meta">
-                            <p>发布日期: 2026-5-16</p>
-                            <p>文件大小: 213.2 KB</p>
-                            <p>支持版本: Minecraft 1.21.12x及以上全部版本</p>
-                        </div>
                     </div>
-                </div>
-                <div class="latest-usfver-updatelog">
-                    <h3 class="updatelog-title">更新日志</h3>
-                    <div class="updatelog-content">
-                        <h4>USF 0.7.21F 更新内容：</h4>
-                        <ul>
-                            <li>USF0.7.20&21更新日志</li>
-<li>1.添加了收到转账时提示转账玩家 (GH#90)</li>
-<li>2.修复了管理员创建领地不扣费的问题(GH#89)</li>
-<li>3、删除记分板默认值按钮</li>
-<li>4、添加记分板管理功能（注：默认值得重新设置</li>
-<li>5、改了部分错字</li>
-<li>0.7.21F:</li>
-<li>1、紧急修复记分板默认值不生效的bug</li>
-<li>2、移除了him</li>
-<li>注意：由于多行签到命令推给ED处理了，所以此版本没有多行签到命令</li>
+                    <div class="flex-1 flex flex-col space-y-3">
+                        <h3 class="text-lg font-semibold text-white">更新日志</h3>
+                        <ul class="text-sm text-neutral-400 font-light space-y-1.5 list-disc list-inside">
+                            <li>添加收到转账时提示转账玩家</li>
+                            <li>修复管理员创建领地不扣费的问题</li>
+                            <li>添加记分板管理功能</li>
+                            <li>紧急修复记分板默认值不生效的 bug</li>
                         </ul>
-                        <a href="https://usfdoc.pages.dev/change-log.html" class="view-more-link">查看完整更新日志 →</a>
+                        <a href="https://usfdoc.pages.dev/change-log.html" class="text-xs text-neutral-500 hover:text-white transition-colors">查看完整更新日志 →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 下载站介绍部分 - 占一整页 -->
-        <section class="products-intro section-transition">
-            <div class="products-container">
-                <div class="products-content">
-                    <h2 class="products-title">USF下载站</h2>
-                    <p class="products-description">USF下载站基于静态网页，支持复杂的下载任务，满足开源软件的下载需求</p>
-                    <div class="products-buttons">
-                        <a href="download/index.html" class="btn">USF官网测试下载站</a>
-                        <a href="https://d.usframeteam.top/" class="btn">USF下载站</a>
-                        <a href="https://github.com/YYTZ666/usfdown" class="btn btn-outline">Github</a>
-                    </div>
-                </div>
-                <div class="products-image" data-product-name="Download"></div>
+        <section class="reveal w-full px-4 md:px-6">
+            <div class="relative w-full rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-[#161618] to-[#0d0d0e] border border-white/[0.06] p-8 md:p-14 flex flex-col items-center text-center space-y-5">
+                <div class="inline-block px-3 py-1 bg-yellow-500/20 border border-yellow-500/40 rounded-full text-yellow-400 text-xs font-medium tracking-wide">正在开发</div>
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white leading-tight">NeoUSF (USFV3)</h2>
+                <p class="text-sm md:text-base text-neutral-400 font-light max-w-lg">
+                    由凋空凌主导开发的新一代 USF，Java 编写的服务端，支持自动安装和自动更新的 MCBE 原版插件
+                </p>
+                <a href="https://github.com/USFrameTeam/Unknown-Server-Framework-V3-build" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-6 py-2.5 border border-white/20 bg-white/5 hover:bg-white/10 text-white text-sm font-medium rounded-full transition-all">
+                    GitHub
+                </a>
             </div>
         </section>
 
-        <section id="products" class="products-intro section-transition">
-            <div class="products-container">
- <!--               <div class="products-image" data-product-name="NeoUSF"></div> -->
-                <div class="products-content">
-                    <span class="products-label">正在开发</span>
-                    <h2 class="products-title">NeoUSF(USFV3)</h2>
-                    <p class="products-description">由凋空凌主导开发的新一代USF，由Java编写的集日志、安装等功能为一体的服务端，支持自动安装和自动更新的MCBE原版插件</p>
-                    <div class="products-buttons">
-                        <a href="https://github.com/USFrameTeam/Unknown-Server-Framework-V3-build" class="btn btn-outline">Github</a>
-                    </div>
-                </div>
+        <section class="reveal w-full px-4 md:px-6">
+            <div class="relative w-full rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-[#161618] to-[#0d0d0e] border border-white/[0.06] p-8 md:p-14 flex flex-col items-center text-center space-y-5">
+                <div class="inline-block px-3 py-1 bg-yellow-500/20 border border-yellow-500/40 rounded-full text-yellow-400 text-xs font-medium tracking-wide">正在开发</div>
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white leading-tight">USFM — Minecraft 服务器面板</h2>
+                <p class="text-sm md:text-base text-neutral-400 font-light max-w-lg">
+                    与 USF 原生集成的 Minecraft 服务器管理面板
+                </p>
+                <a href="https://github.com/USFrameTeam/USF-Manager" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-6 py-2.5 border border-white/20 bg-white/5 hover:bg-white/10 text-white text-sm font-medium rounded-full transition-all">
+                    GitHub
+                </a>
             </div>
         </section>
 
-        <section id="products" class="products-intro section-transition">
-            <div class="products-container">
-                <div class="products-content">
-                    <span class="products-label">正在开发</span>
-                    <h2 class="products-title">USFM—Minecraft服务器面版</h2>
-                    <p class="products-description">与USF原生集成的Minecraft服务器面板项目</p>
-                    <div class="products-buttons">
-                        <a href="https://github.com/USFrameTeam/USF-Manager" class="btn btn-outline">Github</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 团队动态部分 - 占一整页 -->
-        <section class="news-intro section-transition">
-            <h2 class="news-title">团队动态&新闻</h2>
-            <div class="news-grid">
-                <div class="news-content pinned">
-                    <span class="news-pinned-label">置顶</span>
-                    <h3>USF社区贡献者招募计划</h3>
-                    <ul>
-                        <li>具体情况请点击了解更多</li>
-                    </ul>
-                    <div class="news-buttons">
-                        <a href="https://github.com/USFrameTeam/.github/discussions/1" class="btn">了解更多</a>
+        <section class="reveal w-full px-4 md:px-6">
+            <div class="relative w-full rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-[#161618] to-[#0d0d0e] border border-white/[0.06] p-8 md:p-14 flex flex-col items-center text-center space-y-5">
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white leading-tight">团队动态</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                    <div class="flex flex-col space-y-2 p-5 bg-white/[0.02] border border-white/[0.05] rounded-xl text-left">
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-0.5 bg-red-500/20 text-red-400 text-[10px] font-medium rounded-full">置顶</span>
+                            <h3 class="text-sm font-semibold text-white">USF 社区贡献者招募计划</h3>
+                        </div>
+                        <a href="https://github.com/USFrameTeam/.github/discussions/1" target="_blank" rel="noopener" class="text-xs text-neutral-500 hover:text-white transition-colors">了解更多 →</a>
                     </div>
-                </div>
-                <div class="news-content">
-                    <h3>USFrameTeam官网上线</h3>
-                    <ul>
-                        <li>一站式导航</li>
-                        <li>USF动态快速浏览</li>
-                        <li>快速了解USF</li>
-                    </ul>
-                </div>
-                <div class="news-content">
-                    <h3>了解更多？</h3>
-                    <ul>
-                        <li>前往USFrameTeam新闻动态页面</li>
-                    </ul>
-                    <div class="news-buttons">
-                        <a href="news/index.html" class="btn">带我去新闻动态主页</a>
+                    <div class="flex flex-col space-y-2 p-5 bg-white/[0.02] border border-white/[0.05] rounded-xl text-left">
+                        <h3 class="text-sm font-semibold text-white">USFrameTeam 官网上线</h3>
+                        <p class="text-xs text-neutral-400">一站式导航，USF 动态快速浏览</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 链接部分 - 占一整页 -->
-        <section class="links-section section-transition">
-            <h3>USF相关链接</h3>
-            <div class="button-grid">
-                <a href="https://d.usframeteam.top/" class="btn">下载站</a>
-                <a href="https://usftest.usframeteam.top/" class="btn">测试版本下载站</a>
-                <a href="https://github.com/USFrameTeam/Unknown-Server-Framework" class="btn">Github</a>
+        <section class="reveal w-full px-4 md:px-6">
+            <div class="border-t border-white/10 pt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="flex flex-col space-y-6">
+                    <h3 class="text-xs font-semibold tracking-widest text-neutral-400 uppercase">USF 相关链接</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <a href="https://d.usframeteam.top/" target="_blank" rel="noopener" class="group flex items-center justify-between p-4 bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.05] rounded-xl transition-all duration-300">
+                            <span class="text-xs md:text-sm font-medium text-neutral-300">官方下载站</span>
+                            <span class="text-neutral-500">→</span>
+                        </a>
+                        <a href="https://github.com/USFrameTeam/Unknown-Server-Framework" target="_blank" rel="noopener" class="group flex items-center justify-between p-4 bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.05] rounded-xl transition-all duration-300">
+                            <span class="text-xs md:text-sm font-medium text-neutral-300">GitHub 仓库</span>
+                            <span class="text-neutral-500">→</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex flex-col space-y-6">
+                    <h3 class="text-xs font-semibold tracking-widest text-neutral-400 uppercase">授权帖子</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <a href="https://www.minebbs.com/resources/usf-v.5475/" target="_blank" rel="noopener" class="group flex items-center justify-between p-4 bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.05] rounded-xl transition-all duration-300">
+                            <span class="text-xs md:text-sm font-medium text-neutral-300">MineBBS 论坛</span>
+                            <span class="text-neutral-500">→</span>
+                        </a>
+                        <a href="https://klpbbs.com/thread-131213-1-1.html" target="_blank" rel="noopener" class="group flex items-center justify-between p-4 bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.05] rounded-xl transition-all duration-300">
+                            <span class="text-xs md:text-sm font-medium text-neutral-300">苦力怕论坛</span>
+                            <span class="text-neutral-500">→</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- 授权帖子部分 - 占一整页 -->
-        <section class="links-section section-transition">
-           <h3>USF授权帖子</h3>
-           <div class="button-grid">
-                <a href="https://www.minebbs.com/resources/usf-v.5475/" class="btn">MineBBS</a>
-                <a href="https://klpbbs.com/thread-131213-1-1.html" class="btn">苦力怕论坛</a>
-           </div>
-        </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>联系方式</h4>
-                <p>USF社区交流QQ群: 107403959</p>
-            </div>
-            <div class="footer-section">
-                <h4>友情链接</h4>
-                <div class="friend-links">
-                    <a href="https://www.zuyst.top/" target="_blank" class="footer-link">ZUY Studio</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p> 2023-2026 © USFrameTeam. 保留所有权利。</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="static/modern_main.js"></script>
+    <script src="static/components/header.js"></script>
+    <script src="static/components/footer.js"></script>
+    <script src="static/components/common.js"></script>
+    <script>
+        renderHeader({ actionButton: '' });
+        renderFooter();
+        initCommon();
+    </script>
 </body>
 </html>
