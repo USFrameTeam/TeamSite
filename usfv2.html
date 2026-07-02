@@ -92,76 +92,219 @@
                     功能一览
                 </h2>
                 <p class="text-sm md:text-base text-neutral-400 mt-2 font-light">
-                    开箱即用，覆盖服务器管理的核心需求。
+                    点击标签，展开查看每个功能模块。
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-
-                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
-                    <div class="inline-block px-3 py-1 bg-blue-500/20 border border-blue-500/40 rounded-full text-blue-400 text-[10px] font-medium tracking-wide mb-3">核心</div>
-                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">传送系统</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
-                        个人传送点、Home、玩家互传（TPA）、随机传送、返回死亡点，还支持传送动画效果。
-                    </p>
+            <div class="flex flex-col gap-6 w-full">
+                <div class="flex flex-wrap gap-2 md:gap-3">
+                    <button data-tab="teleport" class="feature-tab active px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 bg-white text-black">传送系统</button>
+                    <button data-tab="shop" class="feature-tab px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 bg-white/[0.06] text-neutral-400 border border-white/[0.08] hover:border-white/20 hover:text-white">商店系统</button>
+                    <button data-tab="land" class="feature-tab px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 bg-white/[0.06] text-neutral-400 border border-white/[0.08] hover:border-white/20 hover:text-white">领地系统</button>
+                    <button data-tab="group" class="feature-tab px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 bg-white/[0.06] text-neutral-400 border border-white/[0.08] hover:border-white/20 hover:text-white">群组系统</button>
+                    <button data-tab="chat" class="feature-tab px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 bg-white/[0.06] text-neutral-400 border border-white/[0.08] hover:border-white/20 hover:text-white">聊天系统</button>
+                    <button data-tab="config" class="feature-tab px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 bg-white/[0.06] text-neutral-400 border border-white/[0.08] hover:border-white/20 hover:text-white">策略文件</button>
+                    <button data-tab="log" class="feature-tab px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 bg-white/[0.06] text-neutral-400 border border-white/[0.08] hover:border-white/20 hover:text-white">日志系统</button>
+                    <button data-tab="tools" class="feature-tab px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 bg-white/[0.06] text-neutral-400 border border-white/[0.08] hover:border-white/20 hover:text-white">实用工具</button>
                 </div>
 
-                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
-                    <div class="inline-block px-3 py-1 bg-emerald-500/20 border border-emerald-500/40 rounded-full text-emerald-400 text-[10px] font-medium tracking-wide mb-3">经济</div>
-                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">商店系统</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
-                        全局商店支持售卖、收购、以物易物，可分组、可限购、可限量。
-                    </p>
-                </div>
+                <div class="relative overflow-hidden rounded-[2rem] border border-white/[0.06] bg-gradient-to-br from-[#161618] to-[#121213]">
+                    <div id="feature-panel" class="transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+                        
+                        <div data-content="teleport" class="feature-content p-8 md:p-10 space-y-6" style="display: block;">
+                            <div class="inline-block px-3 py-1 bg-blue-500/20 border border-blue-500/40 rounded-full text-blue-400 text-[10px] font-medium tracking-wide">核心</div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">传送系统</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-blue-400 mt-0.5">→</span>
+                                    <div><p class="text-sm font-medium text-white">个人传送点 & Home</p><p class="text-xs text-neutral-500 mt-1">最多 50 个，支持一键回城</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-blue-400 mt-0.5">⇄</span>
+                                    <div><p class="text-sm font-medium text-white">玩家互传 TPA</p><p class="text-xs text-neutral-500 mt-1">发送请求，对方同意后传送</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-blue-400 mt-0.5">↻</span>
+                                    <div><p class="text-sm font-medium text-white">随机传送</p><p class="text-xs text-neutral-500 mt-1">开盲盒式探险，去完全陌生的地方</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-blue-400 mt-0.5">↺</span>
+                                    <div><p class="text-sm font-medium text-white">返回死亡点</p><p class="text-xs text-neutral-500 mt-1">死后回来捡装备，再也不怕白给</p></div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-neutral-500">还支持传送冷却、传送动画（镜头升起→移动→降落）等。</p>
+                        </div>
 
-                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
-                    <div class="inline-block px-3 py-1 bg-amber-500/20 border border-amber-500/40 rounded-full text-amber-400 text-[10px] font-medium tracking-wide mb-3">防护</div>
-                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">领地系统</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
-                        防熊孩子必备。三维选区、细粒度权限、成员管理、群组开放，让建筑安枕无忧。
-                    </p>
-                </div>
+                        <div data-content="shop" class="feature-content p-8 md:p-10 space-y-6" style="display: none;">
+                            <div class="inline-block px-3 py-1 bg-emerald-500/20 border border-emerald-500/40 rounded-full text-emerald-400 text-[10px] font-medium tracking-wide">经济</div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">商店系统</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-emerald-400 mt-0.5">$</span>
+                                    <div><p class="text-sm font-medium text-white">售卖 / 收购</p><p class="text-xs text-neutral-500 mt-1">玩家买卖物品，建立经济循环</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-emerald-400 mt-0.5">⇄</span>
+                                    <div><p class="text-sm font-medium text-white">以物易物</p><p class="text-xs text-neutral-500 mt-1">用物品换物品，不用游戏币</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-emerald-400 mt-0.5">⊞</span>
+                                    <div><p class="text-sm font-medium text-white">分组管理</p><p class="text-xs text-neutral-500 mt-1">建筑材料、食物药水、工具武器等分类</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-emerald-400 mt-0.5">⊘</span>
+                                    <div><p class="text-sm font-medium text-white">限量 / 限购</p><p class="text-xs text-neutral-500 mt-1">全局限量先到先得，个人限购防囤货</p></div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-neutral-500">支持滑动条选择数量，多种货币记分板接入。</p>
+                        </div>
 
-                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 border border-purple-500/40 rounded-full text-purple-400 text-[10px] font-medium tracking-wide mb-3">社交</div>
-                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">群组系统</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
-                        组队开黑、共享传送点、群聊、群组公告，一起玩更方便。
-                    </p>
-                </div>
+                        <div data-content="land" class="feature-content p-8 md:p-10 space-y-6" style="display: none;">
+                            <div class="inline-block px-3 py-1 bg-amber-500/20 border border-amber-500/40 rounded-full text-amber-400 text-[10px] font-medium tracking-wide">防护</div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">领地系统</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-amber-400 mt-0.5">⊡</span>
+                                    <div><p class="text-sm font-medium text-white">三维选区</p><p class="text-xs text-neutral-500 mt-1">Shift+左键选角，松开选对角，可视化预览</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-amber-400 mt-0.5">⊕</span>
+                                    <div><p class="text-sm font-medium text-white">细粒度权限</p><p class="text-xs text-neutral-500 mt-1">破坏、放置、交互、实体交互，独立控制</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-amber-400 mt-0.5">⊙</span>
+                                    <div><p class="text-sm font-medium text-white">群组开放</p><p class="text-xs text-neutral-500 mt-1">领地对群组开放，成员自动获得权限</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-amber-400 mt-0.5">⊘</span>
+                                    <div><p class="text-sm font-medium text-white">公共领地</p><p class="text-xs text-neutral-500 mt-1">管理员创建公共区域，所有人都能编辑</p></div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-neutral-500">最大 126×126 格，费用 = 体积 × 单价，可配置。</p>
+                        </div>
 
-                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
-                    <div class="inline-block px-3 py-1 bg-cyan-500/20 border border-cyan-500/40 rounded-full text-cyan-400 text-[10px] font-medium tracking-wide mb-3">沟通</div>
-                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">聊天系统</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
-                        公共聊天、私聊、群聊、头衔、禁言、留言板，让玩家交流更顺畅。
-                    </p>
-                </div>
+                        <div data-content="group" class="feature-content p-8 md:p-10 space-y-6" style="display: none;">
+                            <div class="inline-block px-3 py-1 bg-purple-500/20 border border-purple-500/40 rounded-full text-purple-400 text-[10px] font-medium tracking-wide">社交</div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">群组系统</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-purple-400 mt-0.5">⊕</span>
+                                    <div><p class="text-sm font-medium text-white">创建群组</p><p class="text-xs text-neutral-500 mt-1">取名、写公告，把 ID 告诉朋友</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-purple-400 mt-0.5">⇄</span>
+                                    <div><p class="text-sm font-medium text-white">群组传送点</p><p class="text-xs text-neutral-500 mt-1">共享传送点，所有成员可见可用</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-purple-400 mt-0.5">#</span>
+                                    <div><p class="text-sm font-medium text-white">群聊</p><p class="text-xs text-neutral-500 mt-1">消息只在群组内部流转</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-purple-400 mt-0.5">✎</span>
+                                    <div><p class="text-sm font-medium text-white">群组公告</p><p class="text-xs text-neutral-500 mt-1">群主发布，全员可见</p></div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-neutral-500">群主可踢人、审批入群、解散群组，想走就走。</p>
+                        </div>
 
-                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
-                    <div class="inline-block px-3 py-1 bg-pink-500/20 border border-pink-500/40 rounded-full text-pink-400 text-[10px] font-medium tracking-wide mb-3">扩展</div>
-                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">策略文件</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
-                        自定义菜单界面，绑定方块或 NPC，按钮可执行命令、打开商店、传送等。
-                    </p>
-                </div>
+                        <div data-content="chat" class="feature-content p-8 md:p-10 space-y-6" style="display: none;">
+                            <div class="inline-block px-3 py-1 bg-cyan-500/20 border border-cyan-500/40 rounded-full text-cyan-400 text-[10px] font-medium tracking-wide">沟通</div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">聊天系统</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-cyan-400 mt-0.5">💬</span>
+                                    <div><p class="text-sm font-medium text-white">私聊 / 群聊</p><p class="text-xs text-neutral-500 mt-1">和朋友说悄悄话，或群组内部沟通</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-cyan-400 mt-0.5">🏷</span>
+                                    <div><p class="text-sm font-medium text-white">聊天头衔</p><p class="text-xs text-neutral-500 mt-1">管理员设置个性化头衔，显示在名字前</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-cyan-400 mt-0.5">🔇</span>
+                                    <div><p class="text-sm font-medium text-white">禁言</p><p class="text-xs text-neutral-500 mt-1">自动解除，时间到了就能说话</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-cyan-400 mt-0.5">📝</span>
+                                    <div><p class="text-sm font-medium text-white">留言板</p><p class="text-xs text-neutral-500 mt-1">求组队、出售钻石、吐槽偷箱贼</p></div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-neutral-500">支持自定义聊天格式、消息长度限制、自动清屏。</p>
+                        </div>
 
-                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
-                    <div class="inline-block px-3 py-1 bg-orange-500/20 border border-orange-500/40 rounded-full text-orange-400 text-[10px] font-medium tracking-wide mb-3">管理</div>
-                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">日志系统</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
-                        记录聊天、进出、方块、容器、传送等事件，查熊孩子、找回物品，事后有据可查。
-                    </p>
-                </div>
+                        <div data-content="config" class="feature-content p-8 md:p-10 space-y-6" style="display: none;">
+                            <div class="inline-block px-3 py-1 bg-pink-500/20 border border-pink-500/40 rounded-full text-pink-400 text-[10px] font-medium tracking-wide">扩展</div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">策略文件</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-pink-400 mt-0.5">⊞</span>
+                                    <div><p class="text-sm font-medium text-white">自定义菜单</p><p class="text-xs text-neutral-500 mt-1">设计界面、添加按钮、设置标题和内容</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-pink-400 mt-0.5">⟡</span>
+                                    <div><p class="text-sm font-medium text-white">绑定方块/NPC</p><p class="text-xs text-neutral-500 mt-1">Shift+右键绑定方块，右键 NPC</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-pink-400 mt-0.5">▸</span>
+                                    <div><p class="text-sm font-medium text-white">按钮类型</p><p class="text-xs text-neutral-500 mt-1">执行命令、打开商店、传送点、子菜单</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-pink-400 mt-0.5">✦</span>
+                                    <div><p class="text-sm font-medium text-white">确认界面</p><p class="text-xs text-neutral-500 mt-1">自定义标题与内容的确认弹窗</p></div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-neutral-500">可做商店、传送菜单、新手指引、任务系统……任何你能想到的。</p>
+                        </div>
 
-                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
-                    <div class="inline-block px-3 py-1 bg-neutral-500/20 border border-neutral-500/40 rounded-full text-neutral-400 text-[10px] font-medium tracking-wide mb-3">工具</div>
-                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">实用工具</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
-                        小木斧、悬浮字、记分板管理、背包检查、跟踪视角、物品命令执行者。
-                    </p>
-                </div>
+                        <div data-content="log" class="feature-content p-8 md:p-10 space-y-6" style="display: none;">
+                            <div class="inline-block px-3 py-1 bg-orange-500/20 border border-orange-500/40 rounded-full text-orange-400 text-[10px] font-medium tracking-wide">管理</div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">日志系统</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-orange-400 mt-0.5">✎</span>
+                                    <div><p class="text-sm font-medium text-white">全事件记录</p><p class="text-xs text-neutral-500 mt-1">聊天、进出、方块、容器、传送、告示牌</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-orange-400 mt-0.5">⟳</span>
+                                    <div><p class="text-sm font-medium text-white">自动重连</p><p class="text-xs text-neutral-500 mt-1">连接断开后每 30 秒自动重试</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-orange-400 mt-0.5">⊙</span>
+                                    <div><p class="text-sm font-medium text-white">HTTP 推送</p><p class="text-xs text-neutral-500 mt-1">日志以 HTTP 请求发送到外部服务器</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-orange-400 mt-0.5">⊘</span>
+                                    <div><p class="text-sm font-medium text-white">死亡 & 击杀</p><p class="text-xs text-neutral-500 mt-1">记录谁死了、被谁杀死的</p></div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-neutral-500">查熊孩子、找回物品、解决纠纷，事后有据可查。</p>
+                        </div>
 
+                        <div data-content="tools" class="feature-content p-8 md:p-10 space-y-6" style="display: none;">
+                            <div class="inline-block px-3 py-1 bg-neutral-500/20 border border-neutral-500/40 rounded-full text-neutral-400 text-[10px] font-medium tracking-wide">工具</div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">实用工具</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-neutral-400 mt-0.5">⏣</span>
+                                    <div><p class="text-sm font-medium text-white">小木斧</p><p class="text-xs text-neutral-500 mt-1">快速填充方块、导出建筑为结构文件</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-neutral-400 mt-0.5">Aa</span>
+                                    <div><p class="text-sm font-medium text-white">悬浮字</p><p class="text-xs text-neutral-500 mt-1">悬浮空中文字，支持变量显示动态信息</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-neutral-400 mt-0.5">⊞</span>
+                                    <div><p class="text-sm font-medium text-white">记分板管理</p><p class="text-xs text-neutral-500 mt-1">创建/删除、显示位置、修改分数、默认值</p></div>
+                                </div>
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03]">
+                                    <span class="text-neutral-400 mt-0.5">👁</span>
+                                    <div><p class="text-sm font-medium text-white">背包检查 & 跟踪</p><p class="text-xs text-neutral-500 mt-1">查看背包、跟踪视角，方便查证</p></div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-neutral-500">还有双击告示牌编辑、物品命令执行者等。</p>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -293,6 +436,36 @@
         window.addEventListener('resize', forceEqualWidth);
         document.fonts.ready.then(forceEqualWidth);
         setTimeout(forceEqualWidth, 400);
+
+        document.querySelectorAll('.feature-tab').forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                var target = this.getAttribute('data-tab');
+                document.querySelectorAll('.feature-tab').forEach(function(t) {
+                    t.classList.remove('active');
+                    t.classList.remove('bg-white', 'text-black');
+                    t.classList.add('bg-white/[0.06]', 'text-neutral-400', 'border', 'border-white/[0.08]');
+                });
+                this.classList.add('active');
+                this.classList.add('bg-white', 'text-black');
+                this.classList.remove('bg-white/[0.06]', 'text-neutral-400', 'border', 'border-white/[0.08]');
+
+                var panel = document.getElementById('feature-panel');
+                var current = panel.querySelector('.feature-content[style*="display: block"]');
+                var next = panel.querySelector('[data-content="' + target + '"]');
+
+                if (current === next) return;
+
+                var currentHeight = current.offsetHeight;
+                panel.style.height = currentHeight + 'px';
+
+                requestAnimationFrame(function() {
+                    current.style.display = 'none';
+                    next.style.display = 'block';
+                    var nextHeight = next.offsetHeight;
+                    panel.style.height = nextHeight + 'px';
+                });
+            });
+        });
     </script>
 </body>
 </html>
