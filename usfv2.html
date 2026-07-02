@@ -87,57 +87,6 @@
 
 
         <section class="reveal w-full flex flex-col space-y-10 px-4 md:px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                
-                <div class="flex flex-col space-y-4">
-                    <div class="relative w-full rounded-2xl overflow-hidden bg-[#161618] border border-white/10 shadow-2xl flex flex-col">
-                        <div class="w-full h-9 bg-neutral-900/80 backdrop-blur-md flex items-center px-4 border-b border-white/[0.05] space-x-1.5">
-                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-                            <div class="flex-1 text-center pr-12"><span class="text-[10px] text-neutral-500 font-medium tracking-wide">关于USF.mp4</span></div>
-                        </div>
-                        
-                        <div class="relative w-full aspect-video bg-black flex items-center justify-center">
-                            <iframe data-src="https://player.bilibili.com/player.html?isOutside=true&amp;bvid=BV1qJC9BHE7c&amp;p=1" 
-                                    scrolling="no" 
-                                    border="0" 
-                                    frameborder="no" 
-                                    framespacing="0" 
-                                    allowfullscreen="true" 
-                                    class="lazy-iframe absolute inset-0 w-full h-full">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col space-y-4">
-                    <div class="relative w-full rounded-2xl overflow-hidden bg-[#161618] border border-white/10 shadow-2xl flex flex-col">
-                        <div class="w-full h-9 bg-neutral-900/80 backdrop-blur-md flex items-center px-4 border-b border-white/[0.05] space-x-1.5">
-                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-                            <div class="flex-1 text-center pr-12"><span class="text-[10px] text-neutral-500 font-medium tracking-wide">安装USF.mp4</span></div>
-                        </div>
-                        
-                        <div class="relative w-full aspect-video bg-black flex items-center justify-center">
-                            <iframe data-src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=114008162048792&amp;bvid=BV15dAKe6END&amp;cid=28408483408&amp;p=1" 
-                                    scrolling="no" 
-                                    border="0" 
-                                    frameborder="no" 
-                                    framespacing="0" 
-                                    allowfullscreen="true" 
-                                    class="lazy-iframe absolute inset-0 w-full h-full">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <section class="reveal w-full flex flex-col space-y-10 px-4 md:px-6">
             <div class="text-center md:text-left max-w-2xl">
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
                     功能一览
@@ -147,77 +96,115 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
 
-                <div class="md:col-span-2 relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-8 flex flex-col justify-center min-h-[220px]">
-                    <div class="z-10">
-                        <div class="inline-block px-3 py-1 bg-blue-500/20 border border-blue-500/40 rounded-full text-blue-400 text-[10px] font-medium tracking-wide mb-4">核心</div>
-                        <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 tracking-tight">传送系统</h3>
-                        <p class="text-neutral-400 text-sm md:text-base leading-relaxed font-light">
-                            个人传送点、Home、玩家互传（TPA）、随机传送、返回死亡点，还支持传送动画效果。
-                        </p>
-                    </div>
-                    <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-white/[0.02] rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
+                    <div class="inline-block px-3 py-1 bg-blue-500/20 border border-blue-500/40 rounded-full text-blue-400 text-[10px] font-medium tracking-wide mb-3">核心</div>
+                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">传送系统</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
+                        个人传送点、Home、玩家互传（TPA）、随机传送、返回死亡点，还支持传送动画效果。
+                    </p>
                 </div>
 
-                <div class="bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-8 flex flex-col justify-center min-h-[220px]">
-                    <div class="z-10">
-                        <div class="inline-block px-3 py-1 bg-emerald-500/20 border border-emerald-500/40 rounded-full text-emerald-400 text-[10px] font-medium tracking-wide mb-4">经济</div>
-                        <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 tracking-tight">商店系统</h3>
-                        <p class="text-neutral-400 text-sm md:text-base leading-relaxed font-light">
-                            全局商店支持售卖、收购、以物易物，可分组、可限购、可限量。
-                        </p>
+                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
+                    <div class="inline-block px-3 py-1 bg-emerald-500/20 border border-emerald-500/40 rounded-full text-emerald-400 text-[10px] font-medium tracking-wide mb-3">经济</div>
+                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">商店系统</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
+                        全局商店支持售卖、收购、以物易物，可分组、可限购、可限量。
+                    </p>
+                </div>
+
+                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
+                    <div class="inline-block px-3 py-1 bg-amber-500/20 border border-amber-500/40 rounded-full text-amber-400 text-[10px] font-medium tracking-wide mb-3">防护</div>
+                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">领地系统</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
+                        防熊孩子必备。三维选区、细粒度权限、成员管理、群组开放，让建筑安枕无忧。
+                    </p>
+                </div>
+
+                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
+                    <div class="inline-block px-3 py-1 bg-purple-500/20 border border-purple-500/40 rounded-full text-purple-400 text-[10px] font-medium tracking-wide mb-3">社交</div>
+                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">群组系统</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
+                        组队开黑、共享传送点、群聊、群组公告，一起玩更方便。
+                    </p>
+                </div>
+
+                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
+                    <div class="inline-block px-3 py-1 bg-cyan-500/20 border border-cyan-500/40 rounded-full text-cyan-400 text-[10px] font-medium tracking-wide mb-3">沟通</div>
+                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">聊天系统</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
+                        公共聊天、私聊、群聊、头衔、禁言、留言板，让玩家交流更顺畅。
+                    </p>
+                </div>
+
+                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
+                    <div class="inline-block px-3 py-1 bg-pink-500/20 border border-pink-500/40 rounded-full text-pink-400 text-[10px] font-medium tracking-wide mb-3">扩展</div>
+                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">策略文件</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
+                        自定义菜单界面，绑定方块或 NPC，按钮可执行命令、打开商店、传送等。
+                    </p>
+                </div>
+
+                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
+                    <div class="inline-block px-3 py-1 bg-orange-500/20 border border-orange-500/40 rounded-full text-orange-400 text-[10px] font-medium tracking-wide mb-3">管理</div>
+                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">日志系统</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
+                        记录聊天、进出、方块、容器、传送等事件，查熊孩子、找回物品，事后有据可查。
+                    </p>
+                </div>
+
+                <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-6 md:p-8">
+                    <div class="inline-block px-3 py-1 bg-neutral-500/20 border border-neutral-500/40 rounded-full text-neutral-400 text-[10px] font-medium tracking-wide mb-3">工具</div>
+                    <h3 class="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight">实用工具</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed font-light">
+                        小木斧、悬浮字、记分板管理、背包检查、跟踪视角、物品命令执行者。
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="reveal w-full flex flex-col space-y-10 px-4 md:px-6">
+            <div class="text-center md:text-left max-w-2xl">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
+                    看看演示
+                </h2>
+                <p class="text-sm md:text-base text-neutral-400 mt-2 font-light">
+                    了解 USF 的实际表现。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+                <div class="relative w-full rounded-2xl overflow-hidden bg-[#161618] border border-white/10 shadow-2xl flex flex-col">
+                    <div class="w-full h-9 bg-neutral-900/80 backdrop-blur-md flex items-center px-4 border-b border-white/[0.05] space-x-1.5">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                        <div class="flex-1 text-center pr-12"><span class="text-[10px] text-neutral-500 font-medium tracking-wide">关于USF.mp4</span></div>
+                    </div>
+                    <div class="relative w-full aspect-video bg-black flex items-center justify-center">
+                        <iframe data-src="https://player.bilibili.com/player.html?isOutside=true&amp;bvid=BV1qJC9BHE7c&amp;p=1" 
+                                scrolling="no" border="0" frameborder="no" framespacing="0" 
+                                allowfullscreen="true" class="lazy-iframe absolute inset-0 w-full h-full">
+                        </iframe>
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-8 flex flex-col justify-center min-h-[220px]">
-                    <div class="z-10">
-                        <div class="inline-block px-3 py-1 bg-amber-500/20 border border-amber-500/40 rounded-full text-amber-400 text-[10px] font-medium tracking-wide mb-4">防护</div>
-                        <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 tracking-tight">领地系统</h3>
-                        <p class="text-neutral-400 text-sm md:text-base leading-relaxed font-light">
-                            防熊孩子必备。三维选区、细粒度权限、成员管理、群组开放，让建筑安枕无忧。
-                        </p>
+                <div class="relative w-full rounded-2xl overflow-hidden bg-[#161618] border border-white/10 shadow-2xl flex flex-col">
+                    <div class="w-full h-9 bg-neutral-900/80 backdrop-blur-md flex items-center px-4 border-b border-white/[0.05] space-x-1.5">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                        <div class="flex-1 text-center pr-12"><span class="text-[10px] text-neutral-500 font-medium tracking-wide">安装USF.mp4</span></div>
                     </div>
-                </div>
-
-                <div class="bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-8 flex flex-col justify-center min-h-[220px]">
-                    <div class="z-10">
-                        <div class="inline-block px-3 py-1 bg-purple-500/20 border border-purple-500/40 rounded-full text-purple-400 text-[10px] font-medium tracking-wide mb-4">社交</div>
-                        <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 tracking-tight">群组系统</h3>
-                        <p class="text-neutral-400 text-sm md:text-base leading-relaxed font-light">
-                            组队开黑、共享传送点、群聊、群组公告，一起玩更方便。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-8 flex flex-col justify-center min-h-[220px]">
-                    <div class="z-10">
-                        <div class="inline-block px-3 py-1 bg-cyan-500/20 border border-cyan-500/40 rounded-full text-cyan-400 text-[10px] font-medium tracking-wide mb-4">沟通</div>
-                        <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 tracking-tight">聊天系统</h3>
-                        <p class="text-neutral-400 text-sm md:text-base leading-relaxed font-light">
-                            公共聊天、私聊、群聊、头衔、禁言、留言板，让玩家交流更顺畅。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-8 flex flex-col justify-between min-h-[180px]">
-                        <div>
-                            <h3 class="text-lg font-semibold text-white mb-2 tracking-tight">策略文件</h3>
-                            <p class="text-neutral-400 text-sm leading-relaxed font-light">自定义菜单界面，绑定方块或 NPC，按钮可执行命令、打开商店、传送等。</p>
-                        </div>
-                    </div>
-                    <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-8 flex flex-col justify-between min-h-[180px]">
-                        <div>
-                            <h3 class="text-lg font-semibold text-white mb-2 tracking-tight">日志系统</h3>
-                            <p class="text-neutral-400 text-sm leading-relaxed font-light">记录聊天、进出、方块、容器、传送等事件，查熊孩子、找回物品，事后有据可查。</p>
-                        </div>
-                    </div>
-                    <div class="relative overflow-hidden bg-gradient-to-br from-[#161618] to-[#121213] border border-white/[0.06] rounded-[2rem] p-8 flex flex-col justify-between min-h-[180px]">
-                        <div>
-                            <h3 class="text-lg font-semibold text-white mb-2 tracking-tight">实用工具</h3>
-                            <p class="text-neutral-400 text-sm leading-relaxed font-light">小木斧、悬浮字、记分板管理、背包检查、跟踪视角、物品命令执行者。</p>
-                        </div>
+                    <div class="relative w-full aspect-video bg-black flex items-center justify-center">
+                        <iframe data-src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=114008162048792&amp;bvid=BV15dAKe6END&amp;cid=28408483408&amp;p=1" 
+                                scrolling="no" border="0" frameborder="no" framespacing="0" 
+                                allowfullscreen="true" class="lazy-iframe absolute inset-0 w-full h-full">
+                        </iframe>
                     </div>
                 </div>
 
